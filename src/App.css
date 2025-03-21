@@ -1,0 +1,765 @@
+.app {
+  max-width: 425px;
+  height: 100vh;
+  margin: auto;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid var(--border);
+  height: 54px;
+  padding: 0 10px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header-container .book-translation {
+  display: flex;
+  gap: 1px;
+}
+
+.header-container .book-translation .book {
+  display: flex;
+  align-items: center;
+  background-color: var(--card);
+  padding: 5px 10px;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.header-container .book-translation .translation {
+  display: flex;
+  align-items: center;
+  background-color: var(--card);
+  padding: 5px 10px;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.header-container .book-translation .book:hover {
+  background-color: var(--card-hover);
+}
+
+.header-container .book-translation .translation:hover {
+  background-color: var(--card-hover);
+}
+
+.header-container .header-settings {
+  cursor: pointer;
+}
+
+.header-s-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.header-s-container .header-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.header-s-container .settings-back p {
+  margin: 0;
+}
+
+.header-s-container .header-s-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.body {
+  height: calc(100% - 108px);
+  overflow: auto;
+  padding: 0 10px;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  height: 54px;
+  padding: 0 10px;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-container .footer-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-container .footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-container .footer-content .home-link {
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+}
+
+.footer-container .footer-content .home-link a {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container .footer-content .home-link p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-container .footer-content .bible-link {
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+}
+
+.footer-container .footer-content .bible-link a {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container .footer-content .bible-link p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-container .footer-content .menu-link {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  text-align: center;
+  gap: 5px;
+}
+
+.footer-container .footer-content .menu-link p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Home */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.home-container .home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.home-container .home-content .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10em;
+}
+
+.home-container .home-content .brand h1 {
+  font-family: Figtree-Light, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 0;
+}
+
+.home-container .home-content .brand p {
+  font-family: Figtree-Regular, sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.button-container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+}
+
+.button-container button {
+  width: 100%;
+  background-color: var(--foreground);
+  color: var(--background);
+  font-family: Figtree-Medium, sans-serif;
+  font-size: 1em;
+  border-radius: 999px;
+}
+
+.button-container button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Translations */
+.translations-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.translations-container .translations-content .bibles .bible-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Bible */
+.bible-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bible-container .bible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.bible-container .bible-content .book-content .books {
+  display: flex;
+  flex-direction: column;
+}
+
+.bible-container .bible-content .book-content .books .book span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.bible-container .bible-content .book-content .book .chapter-content .chapters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+}
+
+.bible-container
+  .bible-content
+  .book-content
+  .book
+  .chapter-content
+  .chapters
+  .chapter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bible-container
+  .bible-content
+  .book-content
+  .book
+  .chapter-content
+  .chapters
+  .chapter:hover {
+  background-color: var(--card);
+}
+
+.fa-chevron-down {
+  transition: 0.3s ease-out;
+}
+
+/* Chapter */
+.chapter-container .chapter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.chapter-container .chapter-content .chapter .verses .verse {
+  display: flex;
+  line-height: 1.6;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.chapter-container .chapter-content .chapter .verses .verse .verse-number {
+  color: var(--foreground);
+  display: flex;
+  align-items: flex-start;
+}
+
+.chapter-container .chapter-content .chapter .verses .verse .verse-text {
+  text-transform: capitalize;
+  flex: 1;
+}
+
+.chapter-container .chapter-content .chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(425px - 20px);
+  position: fixed;
+  bottom: 74px;
+}
+
+.chapter-container
+  .chapter-content
+  .chapter-navigation
+  .chapter-nav
+  .fa-chevron-left {
+  background-color: var(--card);
+  padding: 12px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chapter-container
+  .chapter-content
+  .chapter-navigation
+  .chapter-nav
+  .fa-chevron-left:hover {
+  background-color: var(--card-hover);
+}
+
+.chapter-container
+  .chapter-content
+  .chapter-navigation
+  .chapter-nav
+  .fa-chevron-right {
+  background-color: var(--card);
+  padding: 12px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.chapter-container
+  .chapter-content
+  .chapter-navigation
+  .chapter-nav
+  .fa-chevron-right:hover {
+  background-color: var(--card-hover);
+}
+
+/* More */
+.more-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  z-index: 99;
+}
+
+.more-container .more-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+
+.more-container .more-header .more-title h2 {
+  font-family: Figtree-Light, sans-serif;
+  margin-bottom: 10px;
+}
+
+.more-container .more-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.more-container .more-content div {
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+}
+
+.more-container .more-content .more-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Figtree-Light, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px 0;
+  gap: 1em;
+}
+
+.more-container .more-content div span {
+  font-size: 16px;
+}
+
+/* About */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.about-container .about-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-container .about-header .about-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.about-container .about-header .about-back p {
+  margin: 0;
+}
+
+.about-container .about-header .about-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.about-container .about-content .about-brand h3 {
+  font-size: 2em;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.about-container .about-content .about-description p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--border);
+  padding: 0 0 20px 0;
+  margin: 0;
+}
+
+.about-container .about-content .about-socials {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-container .about-content .about-socials .about-socials-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-container .about-content .about-socials .about-socials-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-container .about-content .about-socials .about-socials-links a div {
+  align-items: center;
+  padding: 5px 0;
+}
+
+.about-container
+  .about-content
+  .about-socials
+  .about-socials-links
+  div:nth-child(1) {
+  display: flex;
+  gap: 1em;
+}
+
+.about-container .about-content .about-cta {
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-container .about-content .about-cta a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.fa-square-facebook {
+  font-size: 2em;
+}
+
+.fa-twitter {
+  font-size: 2em;
+}
+
+.fa-instagram {
+  font-size: 2em;
+}
+
+/* Developers */
+.developers-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.developers-container .developers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.developers-container .developers-header .developers-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.developers-container .developers-header .developers-back p {
+  margin: 0;
+}
+
+.developers-container .developers-header .developers-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.developers-container .developers-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.developers-container .developers-content .developers-description p {
+  font-size: 1.2em;
+  line-height: 2;
+}
+
+/* Help */
+.help-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.help-container .help-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-container .help-header .help-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.help-container .help-header .help-back p {
+  margin: 0;
+}
+
+.help-container .help-header .help-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.help-container .help-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.help-container .help-content .help-description h3 {
+  margin-bottom: 0;
+}
+
+.help-container .help-content .help-description p {
+  font-size: 1.2em;
+  line-height: 2;
+  margin-top: 0;
+}
+
+/* Settings */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.settings-container .settings-content .settings-item-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-container .settings-content .settings-general,
+.settings-bible {
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-container .settings-content .settings-item-container .settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Language */
+.language-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.language-container .language-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.language-container .language-header .language-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.language-container .language-header .language-back p {
+  margin: 0;
+}
+
+.language-container .language-header .language-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.language-container .language-content .language-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Theme */
+.theme-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.theme-container .theme-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.theme-container .theme-header .theme-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.theme-container .theme-header .theme-back p {
+  margin: 0;
+}
+
+.theme-container .theme-header .theme-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.theme-container .theme-content .theme-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+/* Font */
+.font-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.font-container .font-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+  border-bottom: 1px solid var(--border);
+}
+
+.font-container .font-header .font-back {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.font-container .font-header .font-back p {
+  margin: 0;
+}
+
+.font-container .font-header .font-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-family: Figtree-Regular, sans-serif;
+}
+
+.font-container .font-content .font-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  cursor: pointer;
+}
