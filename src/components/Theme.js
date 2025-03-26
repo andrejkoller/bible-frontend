@@ -6,7 +6,7 @@ const Theme = () => {
   return (
     <div className="theme-container">
       <div className="theme-content">
-        <div>
+        <div className="theme-title">
           <h3>Match Device Setting</h3>
         </div>
         <div>

@@ -20,6 +20,10 @@ export const useBible = () => {
   const [chapters, setChapters] = useState([]);
   const [verses, setVerses] = useState([]);
 
+  const [language, setLanguage] = useState(
+    getLocalStorageItem("translationLanguage", "")
+  );
+
   const [selectedBible, setSelectedBible] = useState(
     getLocalStorageItem("selectedBible", "")
   );
@@ -48,12 +52,12 @@ export const useBible = () => {
 
   useEffect(() => {
     const getBibles = async () => {
-      const bibleList = await fetchBibles();
+      const bibleList = await fetchBibles(language.id);
       setBibles(bibleList);
     };
 
     getBibles();
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,6 +84,7 @@ export const useBible = () => {
   }, [selectedBible, selectedBook, selectedChapter]);
 
   return {
+    language,
     bibles,
     books,
     chapters,
@@ -87,6 +92,7 @@ export const useBible = () => {
     selectedBible,
     selectedBook,
     selectedChapter,
+    setLanguage,
     setChapters,
     setSelectedBible,
     setSelectedBook,

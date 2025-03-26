@@ -16,6 +16,7 @@ import { useLanguage } from "./hooks/useLanguage";
 import Chapter from "./components/Chapter";
 import Header from "./components/Header";
 import Translations from "./components/Translations";
+import TranslationLanguage from "./components/TranslationLanguage";
 
 const App = () => {
   useLanguage();
@@ -34,6 +35,7 @@ const App = () => {
         <div className="body">
           <Routes>
             <Route index path="/home" element={<Home />} />
+            <Route path="/bible-language" element={<TranslationLanguage />} />
             <Route path="/" element={<Translations />} />
             <Route path="/:bibleId" element={<Bible />} />
             <Route path="/:bibleId/:bookId/:chapterId" element={<Chapter />} />

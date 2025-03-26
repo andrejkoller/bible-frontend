@@ -228,11 +228,75 @@
   background-color: var(--button-hover);
 }
 
+/* Translation Language */
+.translation-language-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.translation-language-container .translation-language-title h3 {
+  font-size: 1.1em;
+  font-family: Figtree-Regular, sans-serif;
+  font-weight: 100;
+}
+
+.translation-language-container .translation-language-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+}
+
+.translation-language-container
+  .translation-language-content
+  .translation-language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.translation-language-container
+  .translation-language-content
+  .translation-language-item
+  span {
+  padding: 10px 0;
+}
+
 /* Translations */
+.translations {
+  display: flex;
+  flex-direction: column;
+}
+
+.translations .language-link {
+  padding: 0 10px;
+}
+
+.translations .language-link .language-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.translations .language-link .language-link-item div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
 .translations-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.translations-container .translations-header h2 {
+  margin: 10px;
+  font-size: 1.2em;
 }
 
 .translations-container .translations-content {
@@ -251,14 +315,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.bible-container .bible-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
 }
 
 .bible-container .bible-content .book-content .books {
@@ -283,9 +339,38 @@
 }
 
 .bible-container .bible-content .book-content .book .chapter-content .chapters {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: none;
+  grid-template-columns: 0fr;
   gap: 1em;
+  transition: grid-template-columns 0.3s ease-out;
+}
+
+.bible-container
+  .bible-content
+  .book-content
+  .book
+  .chapter-content
+  .chapters
+  > div {
+  overflow: hidden;
+}
+
+.bible-container
+  .bible-content
+  .book-content
+  .book
+  .chapter-content
+  .chapters.rendered {
+  display: grid;
+}
+
+.bible-container
+  .bible-content
+  .book-content
+  .book
+  .chapter-content
+  .chapters.visible {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .bible-container
@@ -319,12 +404,9 @@
 }
 
 /* Chapter */
-.chapter-container .chapter-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
+.chapter-container .chapter-content {
+  padding: 0 10px;
+  width: calc(100% - 20px);
 }
 
 .chapter-container .chapter-content .chapter .verses .verse {
@@ -405,24 +487,14 @@
   z-index: 99;
 }
 
-.more-container .more-header {
-  display: flex;
-  width: 100%;
-  border-bottom: 1px solid var(--border);
-}
-
-.more-container .more-header .more-title h2 {
-  font-family: Figtree-Light, sans-serif;
-  margin-bottom: 10px;
-}
-
 .more-container .more-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   height: 100%;
-  width: 100%;
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .more-container .more-content div {
@@ -452,29 +524,9 @@
   width: 100%;
 }
 
-.about-container .about-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
-}
-
-.about-container .about-header .about-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.about-container .about-header .about-back p {
-  margin: 0;
-}
-
-.about-container .about-header .about-title h2 {
-  margin: 0;
-  font-size: 16px;
-  font-family: Figtree-Regular, sans-serif;
+.about-container .about-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .about-container .about-content .about-brand h3 {
@@ -552,29 +604,9 @@
   width: 100%;
 }
 
-.developers-container .developers-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
-}
-
-.developers-container .developers-header .developers-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.developers-container .developers-header .developers-back p {
-  margin: 0;
-}
-
-.developers-container .developers-header .developers-title h2 {
-  margin: 0;
-  font-size: 16px;
-  font-family: Figtree-Regular, sans-serif;
+.developers-container .developers-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .developers-container .developers-content {
@@ -594,29 +626,9 @@
   width: 100%;
 }
 
-.help-container .help-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
-}
-
-.help-container .help-header .help-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.help-container .help-header .help-back p {
-  margin: 0;
-}
-
-.help-container .help-header .help-title h2 {
-  margin: 0;
-  font-size: 16px;
-  font-family: Figtree-Regular, sans-serif;
+.help-container .help-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .help-container .help-content {
@@ -639,6 +651,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.settings-container .settings-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .settings-container .settings-content .settings-item-container {
@@ -665,36 +682,27 @@
   width: 100%;
 }
 
-.language-container .language-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
-}
-
-.language-container .language-header .language-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.language-container .language-header .language-back p {
-  margin: 0;
-}
-
-.language-container .language-header .language-title h2 {
-  margin: 0;
-  font-size: 16px;
+.language-container .language-title h3 {
+  font-size: 1.1em;
   font-family: Figtree-Regular, sans-serif;
+  font-weight: 100;
+}
+
+.language-container .language-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .language-container .language-content .language-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 0;
   cursor: pointer;
+}
+
+.language-container .language-content .language-item span {
+  padding: 10px 0;
 }
 
 /* Theme */
@@ -704,29 +712,15 @@
   width: 100%;
 }
 
-.theme-container .theme-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
+.theme-container .theme-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
-.theme-container .theme-header .theme-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.theme-container .theme-header .theme-back p {
-  margin: 0;
-}
-
-.theme-container .theme-header .theme-title h2 {
-  margin: 0;
-  font-size: 16px;
+.theme-container .theme-title h3 {
+  font-size: 1.1em;
   font-family: Figtree-Regular, sans-serif;
+  font-weight: 100;
 }
 
 .theme-container .theme-content .theme-item {
@@ -736,6 +730,10 @@
   cursor: pointer;
 }
 
+.theme-container .theme-content .theme-item span {
+  padding: 10px 0;
+}
+
 /* Font */
 .font-container {
   display: flex;
@@ -743,29 +741,9 @@
   width: 100%;
 }
 
-.font-container .font-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 54px;
-  border-bottom: 1px solid var(--border);
-}
-
-.font-container .font-header .font-back {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  cursor: pointer;
-}
-
-.font-container .font-header .font-back p {
-  margin: 0;
-}
-
-.font-container .font-header .font-title h2 {
-  margin: 0;
-  font-size: 16px;
-  font-family: Figtree-Regular, sans-serif;
+.font-container .font-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
 }
 
 .font-container .font-content .font-item {
@@ -773,4 +751,8 @@
   justify-content: space-between;
   padding: 10px 0;
   cursor: pointer;
+}
+
+.font-container .font-content .font-item span {
+  padding: 10px 0;
 }

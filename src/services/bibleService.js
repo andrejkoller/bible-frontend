@@ -1,7 +1,7 @@
 const BASE_URL = "https://api.scripture.api.bible/v1";
 const API_KEY = "0e291c855b4e948675a6d4f5f7e90ce3";
 
-export const fetchBibles = async () => {
+export const fetchBibles = async (languageId) => {
   try {
     const response = await fetch(`${BASE_URL}/bibles`, {
       headers: { "api-key": API_KEY },
@@ -12,7 +12,9 @@ export const fetchBibles = async () => {
     }
 
     const data = await response.json();
-    const bibles = data.data.filter((bible) => bible.language.id === "eng");
+    const bibles = data.data.filter(
+      (bible) => bible.language.id === languageId
+    );
 
     return bibles;
   } catch (error) {

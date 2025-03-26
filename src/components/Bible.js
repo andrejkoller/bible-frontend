@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { useBible } from "../hooks/useBible";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +15,25 @@ const Bible = () => {
     setIsChaptersVisible,
   } = useBible();
   const navigate = useNavigate();
-  let storedBook = JSON.parse(localStorage.getItem("selectedBook"));
+  const [isRendered, setIsRendered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const bookRefs = useRef({});
+
+  useEffect(() => {
+    if (selectedBook && books.length > 0) {
+      const foundBook = books.find((book) => book.id === selectedBook);
+      if (foundBook) {
+        setTimeout(() => {
+          if (bookRefs.current[foundBook.id]) {
+            bookRefs.current[foundBook.id].scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }, 300);
+      }
+    }
+  }, [books, selectedBook]);
 
   const handleBookSelect = async (bookId) => {
     if (selectedBook === bookId) {
@@ -23,8 +42,12 @@ const Bible = () => {
       setSelectedChapter("");
       setIsChaptersVisible(false);
     } else {
+      setIsRendered(true);
       setSelectedBook(bookId);
       setIsChaptersVisible(true);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 10);
     }
   };
 
@@ -45,11 +68,12 @@ const Bible = () => {
                   <div
                     className="book"
                     key={book.id}
+                    ref={(el) => (bookRefs.current[book.id] = el)}
                     onClick={() => handleBookSelect(book.id)}
                   >
                     <span
                       className={
-                        !isChaptersVisible && storedBook === book.id
+                        !isChaptersVisible && selectedBook === book.id
                           ? "book-link active"
                           : "book-link"
                       }
@@ -67,35 +91,36 @@ const Bible = () => {
                         ></i>
                       }
                     </span>
-                    <div
-                      className="chapter-content"
-                      style={{
-                        transform:
-                          isChaptersVisible && selectedBook === book?.id
-                            ? "scaleY(1)"
-                            : "scaleY(0)",
-                        display:
-                          isChaptersVisible && selectedBook === book?.id
-                            ? "block"
-                            : "none",
-                        transformOrigin: "top",
-                        transition:
-                          "display 0.3s ease-out, transform 0.5s ease-out",
-                      }}
-                    >
+                    <div className="chapter-content">
                       {selectedBook === book?.id && chapters.length > 0 && (
-                        <div className="chapters">
-                          {chapters.slice(1).map((chapter, index) => (
-                            <div
-                              className="chapter"
-                              key={`${selectedBook}-${chapter}-${index}`}
-                              onClick={() =>
-                                handleChapterSelect(chapter.number)
-                              }
-                            >
-                              <span>{chapter.number}</span>
-                            </div>
-                          ))}
+                        <div
+                          className={`chapters ${
+                            isRendered ? "rendered" : ""
+                          } ${isVisible ? "visible" : ""}`}
+                        >
+                          {selectedBible.language.id === "eng"
+                            ? chapters.slice(1).map((chapter, index) => (
+                                <div
+                                  className="chapter"
+                                  key={`${selectedBook}-${chapter}-${index}`}
+                                  onClick={() =>
+                                    handleChapterSelect(chapter.number)
+                                  }
+                                >
+                                  <span>{chapter.number}</span>
+                                </div>
+                              ))
+                            : chapters.map((chapter, index) => (
+                                <div
+                                  className="chapter"
+                                  key={`${selectedBook}-${chapter}-${index}`}
+                                  onClick={() =>
+                                    handleChapterSelect(chapter.number)
+                                  }
+                                >
+                                  <span>{chapter.number}</span>
+                                </div>
+                              ))}
                         </div>
                       )}
                     </div>
