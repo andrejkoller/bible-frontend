@@ -16,8 +16,6 @@ const Header = () => {
   }, [location.pathname]);
 
   const navigateToBooks = () => {
-    localStorage.removeItem("selectedBook");
-    localStorage.removeItem("selectedChapter");
     navigate(`/${selectedBible?.id}`);
   };
 

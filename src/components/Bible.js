@@ -14,6 +14,7 @@ const Bible = () => {
     setIsChaptersVisible,
   } = useBible();
   const navigate = useNavigate();
+  let storedBook = JSON.parse(localStorage.getItem("selectedBook"));
 
   const handleBookSelect = async (bookId) => {
     if (selectedBook === bookId) {
@@ -46,14 +47,20 @@ const Bible = () => {
                     key={book.id}
                     onClick={() => handleBookSelect(book.id)}
                   >
-                    <span className="book-link">
+                    <span
+                      className={
+                        !isChaptersVisible && storedBook === book.id
+                          ? "book-link active"
+                          : "book-link"
+                      }
+                    >
                       <span>{book.name}</span>
                       {
                         <i
                           className={"fa-solid fa-chevron-down"}
                           style={{
                             transform:
-                              isChaptersVisible && selectedBook === book.id
+                              isChaptersVisible && selectedBook === book?.id
                                 ? "rotate(180deg)"
                                 : "rotate(0deg)",
                           }}
@@ -64,11 +71,11 @@ const Bible = () => {
                       className="chapter-content"
                       style={{
                         transform:
-                          isChaptersVisible && selectedBook === book.id
+                          isChaptersVisible && selectedBook === book?.id
                             ? "scaleY(1)"
                             : "scaleY(0)",
                         display:
-                          isChaptersVisible && selectedBook === book.id
+                          isChaptersVisible && selectedBook === book?.id
                             ? "block"
                             : "none",
                         transformOrigin: "top",
@@ -76,7 +83,7 @@ const Bible = () => {
                           "display 0.3s ease-out, transform 0.5s ease-out",
                       }}
                     >
-                      {selectedBook === book.id && chapters.length > 0 && (
+                      {selectedBook === book?.id && chapters.length > 0 && (
                         <div className="chapters">
                           {chapters.slice(1).map((chapter, index) => (
                             <div

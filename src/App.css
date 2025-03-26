@@ -87,7 +87,6 @@
 .body {
   height: calc(100% - 108px);
   overflow: auto;
-  padding: 0 10px;
 }
 
 /* Footer */
@@ -236,6 +235,10 @@
   width: 100%;
 }
 
+.translations-container .translations-content {
+  padding: 0 10px;
+}
+
 .translations-container .translations-content .bibles .bible-item {
   display: flex;
   justify-content: space-between;
@@ -263,11 +266,19 @@
   flex-direction: column;
 }
 
+.bible-container .bible-content .book-content .books .book .book-link {
+  transition: background-color 0.3s ease-out;
+}
+
+.bible-container .bible-content .book-content .books .book .book-link.active {
+  background-color: var(--card);
+}
+
 .bible-container .bible-content .book-content .books .book span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px 10px;
   cursor: pointer;
 }
 
