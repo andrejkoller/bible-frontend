@@ -1,4 +1,4 @@
-import { useLanguage } from "../hooks/useLanguage";
+import { useLanguage } from "../../../hooks/use-language";
 
 const Language = () => {
   const { language, setEnglish, setGerman, setRussian } = useLanguage();

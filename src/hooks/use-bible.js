@@ -4,7 +4,7 @@ import {
   fetchBooks,
   fetchChapters,
   fetchVerses,
-} from "../services/bibleService";
+} from "../services/bible-service";
 
 const getLocalStorageItem = (key, defaultValue) => {
   try {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import { useBible } from "../hooks/useBible";
-import { useFontSize } from "../hooks/useFontSize";
+import { useBible } from "../../../hooks/use-bible";
+import { useFontSize } from "../../../hooks/use-font-size";
 
 const Chapter = () => {
   const {

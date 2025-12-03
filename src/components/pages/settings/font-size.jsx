@@ -1,4 +1,4 @@
-import { useFontSize } from "../hooks/useFontSize";
+import { useFontSize } from "../../../hooks/use-font-size";
 
 const FontSize = () => {
   const {

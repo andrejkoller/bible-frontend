@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { useBible } from "../hooks/useBible";
+import { useBible } from "../../hooks/use-bible";
 
 const TranslationLanguage = () => {
   const { language, setLanguage } = useBible();

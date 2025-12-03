@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useBible } from "../hooks/useBible";
+import { useBible } from "../../../hooks/use-bible";
 import { useNavigate } from "react-router-dom";
 
 const Bible = () => {
