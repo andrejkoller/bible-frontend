@@ -23,7 +23,7 @@ const App = () => {
   useLanguage();
   useTheme();
 
-  let location = useLocation();
+  const location = useLocation();
 
   return (
     <>

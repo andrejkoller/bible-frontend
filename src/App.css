@@ -224,9 +224,10 @@
 
 /* Translation Language */
 .translation-language-container .translation-language-title h3 {
-  font-size: 1.1em;
+  font-size: 1.125em;
   font-family: Figtree-Regular, sans-serif;
   font-weight: 100;
+  margin: 18px 0;
 }
 
 .translation-language-container
@@ -237,13 +238,6 @@
   align-items: center;
   padding: 10px 0;
   cursor: pointer;
-}
-
-.translation-language-container
-  .translation-language-content
-  .translation-language-item
-  span {
-  padding: 10px 0;
 }
 
 /* Translations */
@@ -261,7 +255,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .translations .language-link .language-link-item div {

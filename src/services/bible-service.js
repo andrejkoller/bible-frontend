@@ -7,7 +7,10 @@ export const fetchBibles = async (languageId) => {
   }
 
   const response = await fetch(`${BASE_URL}/bibles`, {
-    headers: { "api-key": API_KEY },
+    headers: {
+      "api-key": API_KEY,
+      "Content-Type": "application/json",
+    },
   });
 
   if (!response.ok) {
@@ -28,7 +31,10 @@ export const fetchBooks = async (bibleId) => {
   }
 
   const response = await fetch(`${BASE_URL}/bibles/${bibleId}/books`, {
-    headers: { "api-key": API_KEY },
+    headers: {
+      "api-key": API_KEY,
+      "Content-Type": "application/json",
+    },
   });
 
   if (!response.ok) {
@@ -49,7 +55,10 @@ export const fetchChapters = async (bibleId, bookId) => {
   const response = await fetch(
     `${BASE_URL}/bibles/${bibleId}/books/${bookId}/chapters`,
     {
-      headers: { "api-key": API_KEY },
+      headers: {
+        "api-key": API_KEY,
+        "Content-Type": "application/json",
+      },
     }
   );
 
@@ -71,7 +80,10 @@ export const fetchVerses = async (bibleId, bookId, chapterId) => {
   const response = await fetch(
     `${BASE_URL}/bibles/${bibleId}/chapters/${bookId}.${chapterId}?content-type=json`,
     {
-      headers: { "api-key": API_KEY },
+      headers: {
+        "api-key": API_KEY,
+        "Content-Type": "application/json",
+      },
     }
   );
 

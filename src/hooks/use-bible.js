@@ -74,6 +74,8 @@ export const useBible = () => {
     const getBooks = async () => {
       if (!selectedBible?.id) {
         setBooks([]);
+        setSelectedBook("");
+        setSelectedChapter("");
         return;
       }
       setIsLoading(true);
@@ -95,6 +97,7 @@ export const useBible = () => {
     const getChapters = async () => {
       if (!selectedBible?.id || !selectedBook) {
         setChapters([]);
+        setSelectedChapter("");
         return;
       }
       setIsLoading(true);

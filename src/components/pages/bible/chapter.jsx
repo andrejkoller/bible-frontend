@@ -1,23 +1,49 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useBible } from "../../../hooks/use-bible";
 import { useFontSize } from "../../../hooks/use-font-size";
+import { useEffect } from "react";
 
 const Chapter = () => {
+  const { bibleId, bookId, chapterId } = useParams();
   const {
     chapters,
     verses,
     selectedBible,
     selectedBook,
     selectedChapter,
+    setSelectedBible,
+    setSelectedBook,
     setSelectedChapter,
     isLoading,
     error,
   } = useBible();
   const navigate = useNavigate();
-  useFontSize(); // Applied via global CSS variable
+  useFontSize();
   const filteredChapters = chapters.filter(
     (chapter) => chapter.number !== "intro"
   );
+
+  useEffect(() => {
+    if (bibleId && (!selectedBible || selectedBible.id !== bibleId)) {
+      setSelectedBible({ id: bibleId });
+    }
+    if (bookId && selectedBook !== bookId) {
+      setSelectedBook(bookId);
+    }
+    if (chapterId && selectedChapter !== chapterId) {
+      setSelectedChapter(chapterId);
+    }
+  }, [
+    bibleId,
+    bookId,
+    chapterId,
+    selectedBible,
+    selectedBook,
+    selectedChapter,
+    setSelectedBible,
+    setSelectedBook,
+    setSelectedChapter,
+  ]);
 
   const handleChapterChange = async (direction) => {
     const currentIndex = filteredChapters.findIndex(
