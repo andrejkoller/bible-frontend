@@ -166,7 +166,7 @@
 
 .home-container .home-content .brand p {
   font-family: Figtree-Regular, sans-serif;
-  font-size: 1.2em;
+  font-size: 1.125rem;
   text-align: center;
   line-height: 1.5;
   margin: 0;
@@ -287,6 +287,10 @@
 .bible-container .bible-content .book-content .books {
   display: flex;
   flex-direction: column;
+}
+
+.bible-container .bible-content .book-content .books .book .chapter-content {
+  padding: 0 10px;
 }
 
 .bible-container .bible-content .book-content .books .book .book-link {
