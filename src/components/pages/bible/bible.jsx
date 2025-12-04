@@ -8,11 +8,12 @@ const Bible = () => {
     chapters,
     selectedBook,
     selectedBible,
-    setChapters,
     setSelectedBook,
     setSelectedChapter,
     isChaptersVisible,
     setIsChaptersVisible,
+    isLoading,
+    error,
   } = useBible();
   const navigate = useNavigate();
   const [isRendered, setIsRendered] = useState(false);
@@ -38,7 +39,6 @@ const Bible = () => {
   const handleBookSelect = async (bookId) => {
     if (selectedBook === bookId) {
       setSelectedBook("");
-      setChapters([]);
       setSelectedChapter("");
       setIsChaptersVisible(false);
     } else {
@@ -53,7 +53,6 @@ const Bible = () => {
 
   const handleChapterSelect = async (chapterId) => {
     setSelectedChapter(chapterId);
-    localStorage.setItem("selectedChapter", chapterId);
     navigate(`/${selectedBible.id}/${selectedBook}/${chapterId}`);
   };
 
@@ -98,29 +97,19 @@ const Bible = () => {
                             isRendered ? "rendered" : ""
                           } ${isVisible ? "visible" : ""}`}
                         >
-                          {selectedBible.language.id === "eng"
-                            ? chapters.slice(1).map((chapter, index) => (
-                                <div
-                                  className="chapter"
-                                  key={`${selectedBook}-${chapter}-${index}`}
-                                  onClick={() =>
-                                    handleChapterSelect(chapter.number)
-                                  }
-                                >
-                                  <span>{chapter.number}</span>
-                                </div>
-                              ))
-                            : chapters.map((chapter, index) => (
-                                <div
-                                  className="chapter"
-                                  key={`${selectedBook}-${chapter}-${index}`}
-                                  onClick={() =>
-                                    handleChapterSelect(chapter.number)
-                                  }
-                                >
-                                  <span>{chapter.number}</span>
-                                </div>
-                              ))}
+                          {chapters
+                            .filter((chapter) => chapter.number !== "intro")
+                            .map((chapter, index) => (
+                              <div
+                                className="chapter"
+                                key={`${selectedBook}-${chapter.id}-${index}`}
+                                onClick={() =>
+                                  handleChapterSelect(chapter.number)
+                                }
+                              >
+                                <span>{chapter.number}</span>
+                              </div>
+                            ))}
                         </div>
                       )}
                     </div>
@@ -128,8 +117,12 @@ const Bible = () => {
                 ))}
               </div>
             </>
-          ) : (
+          ) : error ? (
+            <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
+          ) : isLoading ? (
             <p style={{ textAlign: "center" }}>Loading...</p>
+          ) : (
+            <p style={{ textAlign: "center" }}>No books available</p>
           )}
         </div>
       </div>

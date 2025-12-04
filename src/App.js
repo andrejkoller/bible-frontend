@@ -6,6 +6,7 @@ import More from "./components/pages/more";
 import Developers from "./components/pages/developers";
 import Help from "./components/pages/help";
 import "./App.css";
+import "./index.css";
 import { Routes, Route, useLocation } from "react-router";
 import Settings from "./components/pages/settings/settings";
 import Theme from "./components/pages/settings/theme";

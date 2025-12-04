@@ -13,7 +13,7 @@
   src: url(../public/fonts/figtree/Figtree-Medium.ttf);
 }
 
-.light-theme {
+:root {
   --background: #f5f5f5;
   --foreground: #121212;
   --primary: #ff3d4d;
@@ -24,7 +24,7 @@
   --scrollbar: #c4c4c4;
 }
 
-.dark-theme {
+body[data-theme="dark"] {
   --background: #121212;
   --foreground: #f5f5f5;
   --primary: #ff3d4d;

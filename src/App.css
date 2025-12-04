@@ -25,32 +25,27 @@
   gap: 1px;
 }
 
-.header-container .book-translation .book {
-  display: flex;
-  align-items: center;
-  background-color: var(--card);
-  padding: 5px 10px;
-  border-top-left-radius: 999px;
-  border-bottom-left-radius: 999px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
+.header-container .book-translation .book,
 .header-container .book-translation .translation {
   display: flex;
   align-items: center;
   background-color: var(--card);
   padding: 5px 10px;
-  border-top-right-radius: 999px;
-  border-bottom-right-radius: 999px;
   cursor: pointer;
   font-size: 14px;
 }
 
-.header-container .book-translation .book:hover {
-  background-color: var(--card-hover);
+.header-container .book-translation .book {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
 }
 
+.header-container .book-translation .translation {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+.header-container .book-translation .book:hover,
 .header-container .book-translation .translation:hover {
   background-color: var(--card-hover);
 }
@@ -107,62 +102,31 @@
 
 .footer-container .footer-content {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-
-.footer-container .footer-content {
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 
-.footer-container .footer-content .home-link {
-  display: flex;
-  cursor: pointer;
-  text-align: center;
-}
-
-.footer-container .footer-content .home-link a {
-  gap: 5px;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-container .footer-content .home-link p {
-  margin: 0;
-  font-size: 14px;
-}
-
-.footer-container .footer-content .bible-link {
-  display: flex;
-  cursor: pointer;
-  text-align: center;
-}
-
-.footer-container .footer-content .bible-link a {
-  gap: 5px;
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-container .footer-content .bible-link p {
-  margin: 0;
-  font-size: 14px;
-}
-
+/* Shared footer link styles */
+.footer-container .footer-content .home-link,
+.footer-container .footer-content .bible-link,
 .footer-container .footer-content .menu-link {
   display: flex;
-  flex-direction: column;
   cursor: pointer;
   text-align: center;
-  gap: 5px;
 }
 
+.footer-container .footer-content .home-link a,
+.footer-container .footer-content .bible-link a,
+.footer-container .footer-content .menu-link {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container .footer-content .home-link p,
+.footer-container .footer-content .bible-link p,
 .footer-container .footer-content .menu-link p {
   margin: 0;
   font-size: 14px;
@@ -228,22 +192,41 @@
   background-color: var(--button-hover);
 }
 
-/* Translation Language */
-.translation-language-container {
+/* Shared container patterns */
+.bible-container,
+.translations-container,
+.translation-language-container,
+.settings-container,
+.language-container,
+.theme-container,
+.font-container,
+.about-container,
+.developers-container,
+.help-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
+/* Shared content padding pattern */
+.translation-language-container .translation-language-content,
+.translations-container .translations-content,
+.settings-container .settings-content,
+.language-container .language-content,
+.theme-container .theme-content,
+.font-container .font-content,
+.about-container .about-content,
+.developers-container .developers-content,
+.help-container .help-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+}
+
+/* Translation Language */
 .translation-language-container .translation-language-title h3 {
   font-size: 1.1em;
   font-family: Figtree-Regular, sans-serif;
   font-weight: 100;
-}
-
-.translation-language-container .translation-language-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
 }
 
 .translation-language-container
@@ -288,19 +271,9 @@
   gap: 1em;
 }
 
-.translations-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .translations-container .translations-header h2 {
   margin: 10px;
   font-size: 1.2em;
-}
-
-.translations-container .translations-content {
-  padding: 0 10px;
 }
 
 .translations-container .translations-content .bibles .bible-item {
@@ -311,12 +284,6 @@
 }
 
 /* Bible */
-.bible-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .bible-container .bible-content .book-content .books {
   display: flex;
   flex-direction: column;
@@ -441,21 +408,7 @@
   .chapter-content
   .chapter-navigation
   .chapter-nav
-  .fa-chevron-left {
-  background-color: var(--card);
-  padding: 12px 15px;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.chapter-container
-  .chapter-content
-  .chapter-navigation
-  .chapter-nav
-  .fa-chevron-left:hover {
-  background-color: var(--card-hover);
-}
-
+  .fa-chevron-left,
 .chapter-container
   .chapter-content
   .chapter-navigation
@@ -467,6 +420,11 @@
   cursor: pointer;
 }
 
+.chapter-container
+  .chapter-content
+  .chapter-navigation
+  .chapter-nav
+  .fa-chevron-left:hover,
 .chapter-container
   .chapter-content
   .chapter-navigation
@@ -493,8 +451,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   height: 100%;
-  width: calc(100% - 20px);
-  padding: 0 10px;
+  width: 100%;
 }
 
 .more-container .more-content div {
@@ -510,6 +467,7 @@
   font-size: 16px;
   cursor: pointer;
   margin: 20px 0;
+  padding: 0 10px;
   gap: 1em;
 }
 
@@ -518,17 +476,6 @@
 }
 
 /* About */
-.about-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.about-container .about-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
-}
-
 .about-container .about-content .about-brand h3 {
   font-size: 2em;
   text-align: center;
@@ -536,21 +483,22 @@
 }
 
 .about-container .about-content .about-description p {
-  font-size: 1.2em;
-  line-height: 1.5;
+  font-size: 1.125rem;
+  line-height: 1.8;
   border-bottom: 1px solid var(--border);
   padding: 0 0 20px 0;
   margin: 0;
 }
 
 .about-container .about-content .about-socials {
-  padding: 10px 0 10px 0;
+  padding: 20px 10px;
   border-bottom: 1px solid var(--border);
 }
 
 .about-container .about-content .about-socials .about-socials-links {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .about-container .about-content .about-socials .about-socials-links a {
@@ -561,7 +509,6 @@
 
 .about-container .about-content .about-socials .about-socials-links a div {
   align-items: center;
-  padding: 5px 0;
 }
 
 .about-container
@@ -574,27 +521,23 @@
 }
 
 .about-container .about-content .about-cta {
-  padding: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   border-bottom: 1px solid var(--border);
+  padding: 20px 10px;
 }
 
 .about-container .about-content .about-cta a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
 }
 
-.fa-square-facebook {
-  font-size: 2em;
-}
-
-.fa-twitter {
-  font-size: 2em;
-}
-
+.fa-square-facebook,
+.fa-twitter,
 .fa-instagram {
-  font-size: 2em;
+  font-size: 1.25rem;
 }
 
 /* Developers */
@@ -605,18 +548,15 @@
 }
 
 .developers-container .developers-content {
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 20px);
   padding: 0 10px;
 }
 
-.developers-container .developers-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .developers-container .developers-content .developers-description p {
-  font-size: 1.2em;
-  line-height: 2;
+  font-size: 1.125rem;
+  line-height: 1.8;
 }
 
 /* Help */
@@ -627,37 +567,24 @@
 }
 
 .help-container .help-content {
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 20px);
   padding: 0 10px;
 }
 
-.help-container .help-content {
-  display: flex;
-  flex-direction: column;
-}
-
 .help-container .help-content .help-description h3 {
-  margin-bottom: 0;
+  margin: 20px 0 10px 0;
+  font-size: 1.125rem;
 }
 
 .help-container .help-content .help-description p {
-  font-size: 1.2em;
-  line-height: 2;
+  font-size: 1rem;
+  line-height: 1.8;
   margin-top: 0;
 }
 
 /* Settings */
-.settings-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.settings-container .settings-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
-}
-
 .settings-container .settings-content .settings-item-container {
   display: flex;
   flex-direction: column;
@@ -668,6 +595,12 @@
   border-bottom: 1px solid var(--border);
 }
 
+.settings-container .settings-content .settings-general .settings-subtitle h3,
+.settings-container .settings-content .settings-bible .settings-subtitle h3 {
+  font-size: 1.125rem;
+  margin: 18px 0 10px 0;
+}
+
 .settings-container .settings-content .settings-item-container .settings-item {
   display: flex;
   justify-content: space-between;
@@ -676,28 +609,16 @@
 }
 
 /* Language */
-.language-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .language-container .language-title h3 {
-  font-size: 1.1em;
+  font-size: 1rem;
   font-family: Figtree-Regular, sans-serif;
   font-weight: 100;
-}
-
-.language-container .language-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
 }
 
 .language-container .language-content .language-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
   cursor: pointer;
 }
 
@@ -706,19 +627,8 @@
 }
 
 /* Theme */
-.theme-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.theme-container .theme-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
-}
-
 .theme-container .theme-title h3 {
-  font-size: 1.1em;
+  font-size: 1.125rem;
   font-family: Figtree-Regular, sans-serif;
   font-weight: 100;
 }
@@ -730,20 +640,11 @@
   cursor: pointer;
 }
 
-.theme-container .theme-content .theme-item span {
-  padding: 10px 0;
-}
-
 /* Font */
-.font-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.font-container .font-content {
-  width: calc(100% - 20px);
-  padding: 0 10px;
+.font-container .font-title h3 {
+  font-size: 1.125rem;
+  font-family: Figtree-Regular, sans-serif;
+  font-weight: 100;
 }
 
 .font-container .font-content .font-item {
@@ -751,8 +652,4 @@
   justify-content: space-between;
   padding: 10px 0;
   cursor: pointer;
-}
-
-.font-container .font-content .font-item span {
-  padding: 10px 0;
 }

@@ -1,9 +1,15 @@
 import { useBible } from "../../../hooks/use-bible";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Translations = () => {
-  const { language, bibles, selectedBible, setSelectedBible } = useBible();
+  const {
+    language,
+    bibles,
+    selectedBible,
+    setSelectedBible,
+    isLoading,
+    error,
+  } = useBible();
   const navigate = useNavigate();
 
   const handleBibleSelect = async (bible) => {
@@ -29,23 +35,27 @@ const Translations = () => {
           </h2>
         </div>
         <div className="translations-content">
-          {bibles?.length > 0 ? (
+          {error ? (
+            <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
+          ) : isLoading ? (
+            <p style={{ textAlign: "center" }}>Loading...</p>
+          ) : bibles && bibles.length > 0 ? (
             <div className="bibles">
               {bibles.map((bible) => (
                 <div
                   className="bible-item"
-                  key={bible?.id}
+                  key={bible.id}
                   onClick={() => handleBibleSelect(bible)}
                 >
                   <span>{bible.name.replace(/\(.*?\)/g, "").trim()}</span>
-                  {selectedBible?.id === bible?.id && (
+                  {selectedBible?.id === bible.id && (
                     <i className="fa-solid fa-check"></i>
                   )}
                 </div>
               ))}
             </div>
           ) : (
-            <p style={{ textAlign: "center" }}>Loading...</p>
+            <p style={{ textAlign: "center" }}>No translations available</p>
           )}
         </div>
       </div>

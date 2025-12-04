@@ -10,7 +10,7 @@ const More = () => {
             <span>Read Bible</span>
           </Link>
         </div>
-        <div>
+        <div className="more-links">
           <Link className="more-item" to={"/about"}>
             <i className="fa-solid fa-circle-info"></i>
             <span>About</span>

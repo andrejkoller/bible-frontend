@@ -9,14 +9,14 @@ const Theme = () => {
         <div className="theme-title">
           <h3>Match Device Setting</h3>
         </div>
-        <div>
+        <div className="theme-list">
           <div className="theme-item" onClick={setLightTheme}>
             <span>Off</span>
-            {theme === "light-theme" && <i className="fa-solid fa-check"></i>}
+            {theme === "light" && <i className="fa-solid fa-check"></i>}
           </div>
           <div className="theme-item" onClick={setDarkTheme}>
             <span>On</span>
-            {theme === "dark-theme" && <i className="fa-solid fa-check"></i>}
+            {theme === "dark" && <i className="fa-solid fa-check"></i>}
           </div>
         </div>
       </div>

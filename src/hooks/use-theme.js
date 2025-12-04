@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 
 export const useTheme = () => {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light-theme"
+    () => localStorage.getItem("theme") || "light"
   );
 
   useEffect(() => {
-    document.body.className = theme;
+    if (theme === "dark") {
+      document.body.setAttribute("data-theme", "dark");
+    } else {
+      document.body.removeAttribute("data-theme");
+    }
     localStorage.setItem("theme", theme);
   }, [theme]);
 
   const setLightTheme = () => {
-    setTheme("light-theme");
+    setTheme("light");
   };
 
   const setDarkTheme = () => {
-    setTheme("dark-theme");
+    setTheme("dark");
   };
 
   return { theme, setLightTheme, setDarkTheme };
