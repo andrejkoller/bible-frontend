@@ -1,80 +1,71 @@
-<div align="center">
-  <div>
-    <img src="https://github.com/user-attachments/assets/b1c757ad-3dca-4281-bcc7-7ae497b8c671">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/382cc9cb-29ae-489b-962f-1c97c2322317">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/08f56a80-342e-463f-89c2-e76f2f495c0d">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/81e4befb-618c-4ec5-84b8-a82ccfae65de">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/06fcd333-6988-4e34-bdab-5fe6db43f4b5">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/7c13f9c1-fb97-47e4-9fad-7d699b099fc8">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/63f0c776-f7ec-4d9a-91c7-81363bdae1a8">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/ca141059-fee6-4658-a02e-be2c6d9dbe8d">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/2cb3fe39-4d08-490b-ae97-2c5c74e46202">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/bcfc1f48-d33c-4f78-9a46-9e4a063f258a">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/b2ad9bb3-e683-4912-a410-ce15db793d3c">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/4e3f2abd-0ae3-49e1-9382-b152b24b96d1">
-  </div>
-    <div>
-    <img src="https://github.com/user-attachments/assets/4e19a948-4ad2-4a07-bf49-c7907e37e87c">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/01173c92-d8c9-4361-a0b6-d6e2390ea4e6">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/340b508b-f789-41f6-ab9a-818393b00151">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/21155aec-0623-4817-af07-b6256a39c972">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/b0aafa34-5902-497e-8191-baeff408e76d">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/ff9aabc8-6fc5-4172-a629-4cd17d5d121d">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/3329dd78-03cd-4219-843d-3391f2508dbd">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/ec9beb5e-134c-4980-a304-37a2610b9954">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/a8c3df76-faaa-451c-9d9b-deaf4ff8b276">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/5fc32c9f-b813-4567-8086-0127c50897a3">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/a75ec17e-b347-430d-8b85-8dae9e800f0c">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/87207824-851f-4396-b9c1-d984d76acb01">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/fac5e979-28b9-460d-8007-dc53fe0d4df0">
-  </div>
-  <div>
-    <img src="https://github.com/user-attachments/assets/c9d9e7d3-380f-4f0e-9a9b-1f42fdf57516">
-  </div>
-</div>
+## Short description
+
+A modern, responsive Bible reading application built with React that provides access to multiple Bible translations in various languages. Features a clean, customizable interface designed for enhanced scripture study and reading experience.
+
+## ✨ Features
+
+- Multiple Translations: Access various Bible translations across different languages
+- Language Support: Read scripture in your preferred language
+- Customizable Reading Experience:
+  - Light and dark theme support
+  - Adjustable font sizes (10pt - 30pt)
+  - Responsive design optimized for mobile devices (max-width: 425px)
+- Intuitive Navigation:
+  - Browse books and chapters with smooth animations
+  - Quick chapter navigation with prev/next controls
+  - Persistent reading position (saves your last selected book and chapter)
+- Clean UI: Modern interface with smooth transitions and hover effects
+
+## 🛠️ Technologies Used
+
+- React 19.0.0 - Frontend framework
+- React Router 7.3.0 - Navigation and routing
+- Material-UI 6.4.7 - UI components and icons
+- Scripture API - Bible content and translations
+- Custom Hooks - State management for theme, font size, language, and Bible data
+
+## 📋 Prerequisites
+
+- Node.js (v14 or higher recommended)
+- npm or yarn package manager
+
+## 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/andrejkoller/bible-frontend.git
+cd bible-frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env.local` file in the root directory and add your Scripture API credentials:
+
+```env
+REACT_APP_BASE_URL="https://api.scripture.api.bible/v1"
+REACT_APP_API_KEY="your-api-key-here"
+```
+
+4. Start the development server:
+
+```bash
+npm start
+```
+
+The app will open at [http://localhost:3000](http://localhost:3000)
+
+## 🔑 Getting an API Key
+
+This application uses the [Scripture API](https://scripture.api.bible/). To get your free API key:
+
+1. Visit [https://scripture.api.bible/](https://scripture.api.bible/)
+2. Sign up for a free account
+3. Generate your API key
+4. Add it to your `.env.local` file
+
+## 📸 Screenshots
