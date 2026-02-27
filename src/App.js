@@ -5,7 +5,7 @@ import Home from "./components/pages/home";
 import More from "./components/pages/more";
 import Developers from "./components/pages/developers";
 import Help from "./components/pages/help";
-import "./App.css";
+import "./app.css";
 import "./index.css";
 import { Routes, Route, useLocation } from "react-router";
 import Settings from "./components/pages/settings/settings";
