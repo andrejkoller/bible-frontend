@@ -4,25 +4,25 @@ A modern, responsive Bible reading application built with React that provides ac
 
 ## ✨ Features
 
-- Multiple Translations: Access various Bible translations across different languages
-- Language Support: Read scripture in your preferred language
-- Customizable Reading Experience:
+- **Multiple Translations:** Access various Bible translations across different languages
+- **Language Support:** Read scripture in your preferred language
+- **Customizable Reading Experience:**
   - Light and dark theme support
   - Adjustable font sizes (10pt - 30pt)
   - Responsive design optimized for mobile devices (max-width: 425px)
-- Intuitive Navigation:
+- **Intuitive Navigation:**
   - Browse books and chapters with smooth animations
   - Quick chapter navigation with prev/next controls
   - Persistent reading position (saves your last selected book and chapter)
-- Clean UI: Modern interface with smooth transitions and hover effects
+- **Clean UI:** Modern interface with smooth transitions and hover effects
 
 ## 🛠️ Technologies Used
 
-- React 19.0.0 - Frontend framework
-- React Router 7.3.0 - Navigation and routing
-- Material-UI 6.4.7 - UI components and icons
-- Scripture API - Bible content and translations
-- Custom Hooks - State management for theme, font size, language, and Bible data
+- **React** - Frontend framework
+- **React Router** - Navigation and routing
+- **Material-UI** - UI components and icons
+- **Scripture API** - Bible content and translations
+- **Custom Hooks** - State management for theme, font size, language, and Bible data
 
 ## 📋 Prerequisites
 
