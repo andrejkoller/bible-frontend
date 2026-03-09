@@ -4,25 +4,25 @@ A modern, responsive Bible reading application built with React that provides ac
 
 ## ✨ Features
 
-- **Multiple Translations:** Access various Bible translations across different languages
-- **Language Support:** Read scripture in your preferred language
-- **Customizable Reading Experience:**
+- Multiple Translations: Access various Bible translations across different languages
+- Language Support: Read scripture in your preferred language
+- Customizable Reading Experience:
   - Light and dark theme support
   - Adjustable font sizes (10pt - 30pt)
   - Responsive design optimized for mobile devices (max-width: 425px)
-- **Intuitive Navigation:**
+- Intuitive Navigation:
   - Browse books and chapters with smooth animations
   - Quick chapter navigation with prev/next controls
   - Persistent reading position (saves your last selected book and chapter)
-- **Clean UI:** Modern interface with smooth transitions and hover effects
+- Clean UI: Modern interface with smooth transitions and hover effects
 
 ## 🛠️ Technologies Used
 
-- **React** - Frontend framework
-- **React Router** - Navigation and routing
-- **Material-UI** - UI components and icons
-- **Scripture API** - Bible content and translations
-- **Custom Hooks** - State management for theme, font size, language, and Bible data
+- React - Frontend framework
+- React Router - Navigation and routing
+- Material-UI - UI components and icons
+- Scripture API - Bible content and translations
+- Custom Hooks - State management for theme, font size, language, and Bible data
 
 ## 📋 Prerequisites
 
@@ -69,6 +69,7 @@ This application uses the [Scripture API](https://scripture.api.bible/). To get 
 4. Add it to your `.env.local` file
 
 ## 📸 Screenshots
+
 <img width="1920" height="1080" alt="Screenshot 1" src="https://github.com/user-attachments/assets/43657fc7-8f66-4b55-8102-f1abfdca8084" />
 <img width="1920" height="1080" alt="Screenshot 2" src="https://github.com/user-attachments/assets/b2f6c332-ff13-43f7-ad41-9d67e8e52ef4" />
 <img width="1920" height="1080" alt="Screenshot 3" src="https://github.com/user-attachments/assets/25da4105-630e-41eb-b067-e37911fa9bcf" />
