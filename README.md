@@ -18,9 +18,9 @@ A modern, responsive Bible reading application built with React that provides ac
 
 ## 🛠️ Technologies Used
 
-- React 19.0.0 - Frontend framework
-- React Router 7.3.0 - Navigation and routing
-- Material-UI 6.4.7 - UI components and icons
+- React - Frontend framework
+- React Router - Navigation and routing
+- Material-UI - UI components and icons
 - Scripture API - Bible content and translations
 - Custom Hooks - State management for theme, font size, language, and Bible data
 
@@ -69,6 +69,7 @@ This application uses the [Scripture API](https://scripture.api.bible/). To get 
 4. Add it to your `.env.local` file
 
 ## 📸 Screenshots
+
 <img width="1920" height="1080" alt="Screenshot 1" src="https://github.com/user-attachments/assets/43657fc7-8f66-4b55-8102-f1abfdca8084" />
 <img width="1920" height="1080" alt="Screenshot 2" src="https://github.com/user-attachments/assets/b2f6c332-ff13-43f7-ad41-9d67e8e52ef4" />
 <img width="1920" height="1080" alt="Screenshot 3" src="https://github.com/user-attachments/assets/25da4105-630e-41eb-b067-e37911fa9bcf" />

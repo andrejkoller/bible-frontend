@@ -25,20 +25,24 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-
-  --border: #c4c4c4;
-
+  --foreground: #0a0a0a;
+  --primary: #ff3d4d;
+  --border: #dddbdb;
+  --card: #e4e3e3;
+  --card-hover: #f0f0f0;
+  --button-hover: #292929;
   --scrollbar: #c4c4c4;
 }
 
 body[data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ffffff;
-
-  --border: #3c3c3c;
-
-  --scrollbar: #555555;
+  --primary: #ff3d4d;
+  --border: #5c5c5c;
+  --card: #313131;
+  --card-hover: #3c3c3c;
+  --button-hover: #bbbbbb;
+  --scrollbar: #c4c4c4;
 }
 
 body {
