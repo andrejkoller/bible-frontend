@@ -1,16 +1,26 @@
 @font-face {
   font-family: Figtree-Light;
-  src: url(../public/fonts/figtree/Figtree-Light.ttf);
+  src: url(../public/fonts/Figtree-Light.ttf);
 }
 
 @font-face {
   font-family: Figtree-Regular;
-  src: url(../public/fonts/figtree/Figtree-Regular.ttf);
+  src: url(../public/fonts/Figtree-Regular.ttf);
 }
 
 @font-face {
   font-family: Figtree-Medium;
-  src: url(../public/fonts/figtree/Figtree-Medium.ttf);
+  src: url(../public/fonts/Figtree-Medium.ttf);
+}
+
+@font-face {
+  font-family: Figtree-SemiBold;
+  src: url(../public/fonts/Figtree-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: Figtree-Bold;
+  src: url(../public/fonts/Figtree-Bold.ttf);
 }
 
 :root {
@@ -48,18 +58,31 @@ body {
   scroll-behavior: smooth;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: var(--foreground);
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar);
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-track {

@@ -133,38 +133,32 @@
 }
 
 /* Home */
-.home-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.home-container .home-content {
+.home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 
-.home-container .home-content .brand {
+.introduction {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   height: 100%;
   width: 100%;
-  margin-top: 10em;
+  margin-top: 8rem;
 }
 
-.home-container .home-content .brand h1 {
+.introduction h1 {
   font-family: Figtree-Light, sans-serif;
   font-size: 2em;
   text-align: center;
-  margin-top: 0;
 }
 
-.home-container .home-content .brand p {
+.introduction p {
   font-family: Figtree-Regular, sans-serif;
   font-size: 1.125rem;
   text-align: center;
@@ -173,23 +167,19 @@
 }
 
 .button-container {
-  width: 75%;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2em;
 }
 
 .button-container button {
-  width: 100%;
   background-color: var(--foreground);
   color: var(--background);
-  font-family: Figtree-Medium, sans-serif;
-  font-size: 1em;
+  font-family: Figtree-SemiBold, sans-serif;
   border-radius: 999px;
-}
-
-.button-container button:hover {
-  background-color: var(--button-hover);
+  padding: 0 24px;
+  height: 40px;
+  text-transform: none;
 }
 
 /* Shared container patterns */
@@ -349,9 +339,9 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+  background-color: var(--card);
 }
 
 .bible-container
@@ -361,7 +351,7 @@
   .chapter-content
   .chapters
   .chapter:hover {
-  background-color: var(--card);
+  background-color: var(--card-hover);
 }
 
 .fa-chevron-down {
