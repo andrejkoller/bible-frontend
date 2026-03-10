@@ -1,63 +1,54 @@
-import Footer from "./components/footer";
 import Bible from "./components/pages/bible/bible";
-import About from "./components/pages/about";
-import Home from "./components/pages/home";
-import More from "./components/pages/more";
-import Developers from "./components/pages/developers";
-import Help from "./components/pages/help";
+import AboutPage from "./components/pages/about/about";
+import HomePage from "./components/pages/home/home";
+import MorePage from "./components/pages/more/more";
+import DevelopersPage from "./components/developers/developers";
+import HelpPage from "./components/help/help";
+import { Routes, Route, useLocation } from "react-router";
+import SettingsPage from "./components/pages/settings/settings";
+import ThemePage from "./components/pages/settings/theme/theme";
+import FontSizePage from "./components/pages/settings/font-size/font-size";
+import LanguagePage from "./components/pages/settings/language/language";
+import ChapterPage from "./components/pages/bible/chapter/chapter";
+import { Header } from "./components/header/header";
+import { Footer } from "./components/footer/footer";
+import TranslationsPage from "./components/pages/bible/translations/translations";
+import TranslationLanguagePage from "./components/pages/translation-language/translation-language";
 import "./app.css";
 import "./index.css";
-import { Routes, Route, useLocation } from "react-router";
-import Settings from "./components/pages/settings/settings";
-import Theme from "./components/pages/settings/theme";
-import { useTheme } from "./hooks/use-theme";
-import FontSize from "./components/pages/settings/font-size";
-import Language from "./components/pages/settings/language";
-import { useLanguage } from "./hooks/use-language";
-import Chapter from "./components/pages/bible/chapter";
-import Header from "./components/header";
-import Translations from "./components/pages/bible/translations";
-import TranslationLanguage from "./components/pages/translation-language";
 
-const App = () => {
-  useLanguage();
-  useTheme();
-
+export default function App() {
   const location = useLocation();
 
   return (
     <>
       <div className="app">
-        {location.pathname !== "/home" && (
-          <div className="header">
-            <Header></Header>
-          </div>
-        )}
-        <div className="body">
+        {location.pathname !== "/home" && <Header />}
+        <main className="main">
           <Routes>
-            <Route index path="/home" element={<Home />} />
-            <Route path="/bible-language" element={<TranslationLanguage />} />
-            <Route path="/" element={<Translations />} />
+            <Route index path="/home" element={<HomePage />} />
+            <Route
+              path="/bible-language"
+              element={<TranslationLanguagePage />}
+            />
+            <Route path="/" element={<TranslationsPage />} />
             <Route path="/:bibleId" element={<Bible />} />
-            <Route path="/:bibleId/:bookId/:chapterId" element={<Chapter />} />
-            <Route path="/more" element={<More />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/developers" element={<Developers />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/settings/language" element={<Language />} />
-            <Route path="/settings/theme" element={<Theme />} />
-            <Route path="/settings/font" element={<FontSize />} />
+            <Route
+              path="/:bibleId/:bookId/:chapterId"
+              element={<ChapterPage />}
+            />
+            <Route path="/more" element={<MorePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/developers" element={<DevelopersPage />} />
+            <Route path="/help" element={<HelpPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/settings/language" element={<LanguagePage />} />
+            <Route path="/settings/theme" element={<ThemePage />} />
+            <Route path="/settings/font" element={<FontSizePage />} />
           </Routes>
-        </div>
-        {location.pathname !== "/home" && (
-          <div className="footer">
-            <Footer></Footer>
-          </div>
-        )}
+        </main>
+        {location.pathname !== "/home" && <Footer />}
       </div>
     </>
   );
-};
-
-export default App;
+}

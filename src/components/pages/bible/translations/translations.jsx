@@ -1,7 +1,8 @@
-import { useBible } from "../../../hooks/use-bible";
+import { useBible } from "../../../../hooks/use-bible";
 import { useNavigate, Link } from "react-router-dom";
+import styles from "./translations.module.css";
 
-const Translations = () => {
+export default function TranslationsPage() {
   const {
     language,
     bibles,
@@ -18,32 +19,27 @@ const Translations = () => {
   };
 
   return (
-    <div className="translations">
-      <div className="language-link">
-        <Link className="language-link-item" to={"/bible-language"}>
-          <div>
-            <i className="fa-solid fa-globe"></i>
-            <span>Language</span>
-          </div>
-          <i className="fa-solid fa-chevron-right"></i>
-        </Link>
-      </div>
-      <div className="translations-container">
-        <div className="translations-header">
+    <div className={styles.translations}>
+      <Link className={styles.link} to={"/bible-language"}>
+        <span>Language</span>
+        <i className="fa-solid fa-chevron-right"></i>
+      </Link>
+      <div className={styles.translationsContainer}>
+        <div className={styles.translationsTitle}>
           <h2>
             {bibles?.length} {language?.name} Versions
           </h2>
         </div>
-        <div className="translations-content">
+        <div className={styles.translationsContent}>
           {error ? (
             <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
           ) : isLoading ? (
             <p style={{ textAlign: "center" }}>Loading...</p>
           ) : bibles && bibles.length > 0 ? (
-            <div className="bibles">
+            <div className={styles.bibles}>
               {bibles.map((bible) => (
                 <div
-                  className="bible-item"
+                  className={styles.bibleItem}
                   key={bible.id}
                   onClick={() => handleBibleSelect(bible)}
                 >
@@ -61,6 +57,4 @@ const Translations = () => {
       </div>
     </div>
   );
-};
-
-export default Translations;
+}

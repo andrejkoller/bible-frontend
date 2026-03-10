@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.225rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  height: var(--header-height);
+}
+
+.book,
+.translation {
+  display: flex;
+  align-items: center;
+  background-color: var(--card);
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-family: Figtree-Regular, sans-serif;
+  font-weight: 600;
+}
+
+.book {
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+.translation {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+.book:hover,
+.translation:hover {
+  background-color: var(--card-hover);
+}
+
+.headerTitle {
+  padding: 0 10px;
+}
+
+.headerTitle h2 {
+  font-size: 1.125rem;
+  font-family: Figtree-Regular, sans-serif;
+}

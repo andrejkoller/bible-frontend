@@ -1,0 +1,49 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  margin-top: 8rem;
+}
+
+.introduction h1 {
+  font-family: Figtree-Light, sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+.introduction p {
+  font-family: Figtree-Regular, sans-serif;
+  font-size: 1.125rem;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6rem;
+}
+
+.buttonContainer button {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-family: Figtree-SemiBold, sans-serif;
+  border-radius: 999px;
+  padding: 0 24px;
+  height: 40px;
+  text-transform: none;
+}

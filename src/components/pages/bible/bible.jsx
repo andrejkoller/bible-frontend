@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useBible } from "../../../hooks/use-bible";
 import { useNavigate } from "react-router-dom";
+import styles from "./bible.module.css";
 
-const Bible = () => {
+export default function Bible() {
   const {
     books,
     chapters,
@@ -57,77 +58,67 @@ const Bible = () => {
   };
 
   return (
-    <div className="bible-container">
-      <div className="bible-content">
-        <div className="book-content">
-          {books.length > 0 ? (
-            <>
-              <div className="books">
-                {books.map((book) => (
+    <div className={styles.bible}>
+      {books.length > 0 ? (
+        <>
+          <div className={styles.books}>
+            {books.map((book) => (
+              <div
+                className={styles.book}
+                key={book.id}
+                ref={(el) => (bookRefs.current[book.id] = el)}
+                onClick={() => handleBookSelect(book.id)}
+              >
+                <span
+                  className={
+                    isChaptersVisible && selectedBook === book.id
+                      ? `${styles.bookLink} ${styles.active}`
+                      : styles.bookLink
+                  }
+                >
+                  <span>{book.name}</span>
+                  {
+                    <i
+                      className={"fa-solid fa-chevron-down"}
+                      style={{
+                        transform:
+                          isChaptersVisible && selectedBook === book?.id
+                            ? "rotate(180deg)"
+                            : "rotate(0deg)",
+                      }}
+                    ></i>
+                  }
+                </span>
+                {selectedBook === book?.id && chapters.length > 0 && (
                   <div
-                    className="book"
-                    key={book.id}
-                    ref={(el) => (bookRefs.current[book.id] = el)}
-                    onClick={() => handleBookSelect(book.id)}
+                    className={`${styles.chapters} ${
+                      isRendered ? styles.rendered : ""
+                    } ${isVisible ? styles.visible : ""}`}
                   >
-                    <span
-                      className={
-                        !isChaptersVisible && selectedBook === book.id
-                          ? "book-link active"
-                          : "book-link"
-                      }
-                    >
-                      <span>{book.name}</span>
-                      {
-                        <i
-                          className={"fa-solid fa-chevron-down"}
-                          style={{
-                            transform:
-                              isChaptersVisible && selectedBook === book?.id
-                                ? "rotate(180deg)"
-                                : "rotate(0deg)",
-                          }}
-                        ></i>
-                      }
-                    </span>
-                    <div className="chapter-content">
-                      {selectedBook === book?.id && chapters.length > 0 && (
+                    {chapters
+                      .filter((chapter) => chapter.number !== "intro")
+                      .map((chapter, index) => (
                         <div
-                          className={`chapters ${
-                            isRendered ? "rendered" : ""
-                          } ${isVisible ? "visible" : ""}`}
+                          className={styles.chapter}
+                          key={`${selectedBook}-${chapter.id}-${index}`}
+                          onClick={() => handleChapterSelect(chapter.number)}
                         >
-                          {chapters
-                            .filter((chapter) => chapter.number !== "intro")
-                            .map((chapter, index) => (
-                              <div
-                                className="chapter"
-                                key={`${selectedBook}-${chapter.id}-${index}`}
-                                onClick={() =>
-                                  handleChapterSelect(chapter.number)
-                                }
-                              >
-                                <span>{chapter.number}</span>
-                              </div>
-                            ))}
+                          <span>{chapter.number}</span>
                         </div>
-                      )}
-                    </div>
+                      ))}
                   </div>
-                ))}
+                )}
               </div>
-            </>
-          ) : error ? (
-            <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
-          ) : isLoading ? (
-            <p style={{ textAlign: "center" }}>Loading...</p>
-          ) : (
-            <p style={{ textAlign: "center" }}>No books available</p>
-          )}
-        </div>
-      </div>
+            ))}
+          </div>
+        </>
+      ) : error ? (
+        <p className={styles.error}>Error: {error}</p>
+      ) : isLoading ? (
+        <p className={styles.loading}>Loading...</p>
+      ) : (
+        <p className={styles.noBooks}>No books available</p>
+      )}
     </div>
   );
-};
-
-export default Bible;
+}
