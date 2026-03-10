@@ -1,0 +1,17 @@
+.developers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.developersDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 20px 0;
+}
+
+.developersDescription p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}

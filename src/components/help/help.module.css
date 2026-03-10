@@ -1,0 +1,22 @@
+.help {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.helpItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.helpItem h3 {
+  font-size: 1.125rem;
+}
+
+.helpItem p {
+  font-size: 1rem;
+  line-height: 1.8;
+}

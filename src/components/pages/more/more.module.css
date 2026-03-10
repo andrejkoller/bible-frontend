@@ -1,0 +1,33 @@
+.more {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.moreLinks {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.link {
+  padding: 0 10px 1rem 10px;
+  margin: 0 -10px;
+}
+
+.link:nth-child(2) {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.link:nth-child(5) {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+.link:nth-child(6) {
+  padding: 1rem 10px 0 10px;
+}

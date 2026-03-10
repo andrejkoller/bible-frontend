@@ -1,0 +1,52 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.about h3 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.aboutDescription {
+  padding-bottom: 1.5rem;
+}
+
+.aboutDescription p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.aboutSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 10px;
+  margin: 0 -10px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.link a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutCta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 10px;
+  margin: 0 -10px;
+  border-bottom: 1px solid var(--border);
+}

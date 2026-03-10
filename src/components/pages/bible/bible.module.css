@@ -1,0 +1,74 @@
+.bible {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.books {
+  display: flex;
+  flex-direction: column;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bookLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 -10px;
+  padding: 10px 10px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.bookLink.active {
+  font-weight: 600;
+}
+
+.bookLink span {
+  text-transform: lowercase;
+}
+
+.bookLink span::first-letter {
+  text-transform: uppercase;
+}
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    max-height 0.3s ease;
+}
+
+.chapters.rendered {
+  max-height: fit-content;
+}
+
+.chapters.visible {
+  opacity: 1;
+}
+
+.chapter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  background-color: var(--card);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chapter:hover {
+  background-color: var(--card-hover);
+}

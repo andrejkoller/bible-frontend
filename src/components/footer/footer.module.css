@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  height: var(--footer-height);
+  padding: 0 10px;
+}
+
+.footerLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.footerLink a {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLink p {
+  font-size: 12px;
+  font-weight: 600;
+}
