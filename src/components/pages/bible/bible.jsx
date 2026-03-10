@@ -3,7 +3,7 @@ import { useBible } from "../../../hooks/use-bible";
 import { useNavigate } from "react-router-dom";
 import styles from "./bible.module.css";
 
-export default function Bible() {
+export default function BiblePage() {
   const {
     books,
     chapters,
