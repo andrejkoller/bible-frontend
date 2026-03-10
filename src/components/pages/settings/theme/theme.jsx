@@ -2,7 +2,15 @@ import { useTheme } from "../../../../hooks/use-theme";
 import styles from "./theme.module.css";
 
 export default function ThemePage() {
-  const { theme, setLightTheme, setDarkTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const setLightTheme = () => {
+    setTheme("light");
+  };
+
+  const setDarkTheme = () => {
+    setTheme("dark");
+  };
 
   return (
     <div className={styles.theme}>

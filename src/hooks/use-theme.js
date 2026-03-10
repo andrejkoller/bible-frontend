@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../contexts/theme-context";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
-  );
+  const context = useContext(ThemeContext);
 
-  useEffect(() => {
-    if (theme === "dark") {
-      document.body.setAttribute("data-theme", "dark");
-    } else {
-      document.body.removeAttribute("data-theme");
-    }
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  if (!context) {
+    throw new Error("useTheme must be used within ThemeProvider");
+  }
 
-  const setLightTheme = () => {
-    setTheme("light");
-  };
-
-  const setDarkTheme = () => {
-    setTheme("dark");
-  };
-
-  return { theme, setLightTheme, setDarkTheme };
+  return context;
 };

@@ -34,20 +34,26 @@
 
   --card: #f5f5f5;
   --card-hover: #e0e0e0;
+
+  --button: #000000;
+  --button-hover: #333333;
   
   --scrollbar: #c4c4c4;
 }
 
-body[data-theme="dark"] {
-  --background: #0a0a0a;
+:root[data-theme="dark"] {
+  --background: #000101;
   --foreground: #ffffff;
 
-  --border: #3c3c3c;
+  --border: #333333;
 
-  --card: #1a1a1a;
+  --card: #222222;
   --card-hover: #333333;
 
-  --scrollbar: #555555;
+    --button: #ffffff;
+  --button-hover: #f0f0f0;
+
+  --scrollbar: #333333;
 }
 
 body {
