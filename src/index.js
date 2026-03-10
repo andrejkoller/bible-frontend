@@ -4,12 +4,21 @@ import "./index.css";
 import App from "./app";
 import reportWebVitals from "./report-web-vitals";
 import { BrowserRouter } from "react-router";
+import { ThemeProvider } from "./contexts/theme-context";
+import { LanguageProvider } from "./contexts/language-context";
+import { FontSizeProvider } from "./contexts/font-size-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <LanguageProvider>
+        <ThemeProvider>
+          <FontSizeProvider>
+            <App />
+          </FontSizeProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </React.StrictMode>
   </BrowserRouter>,
 );

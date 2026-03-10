@@ -51,7 +51,11 @@
 
 .prev,
 .next {
-  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   background-color: var(--card);

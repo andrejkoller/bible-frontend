@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { LanguageContext } from "../contexts/language-context";
 
 export const useLanguage = () => {
-  const [language, setLanguage] = useState(
-    () => localStorage.getItem("language") || "en-US"
-  );
+  const context = useContext(LanguageContext);
 
-  const setEnglish = () => {
-    setLanguage("en-US");
-  };
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider");
+  }
 
-  const setGerman = () => {
-    setLanguage("ger");
-  };
-
-  const setRussian = () => {
-    setLanguage("ru");
-  };
-
-  useEffect(() => {
-    document.body.lang = language;
-    localStorage.setItem("language", language);
-  }, [language]);
-
-  return { language, setEnglish, setGerman, setRussian };
+  return context;
 };
