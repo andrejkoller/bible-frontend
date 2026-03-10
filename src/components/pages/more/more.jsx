@@ -9,6 +9,7 @@ export default function MorePage() {
         {moreConfig.links.map((item) => (
           <Link key={item.name} to={item.path} className={styles.link}>
             <span>{item.name}</span>
+            <i className="fa-solid fa-chevron-right" />
           </Link>
         ))}
       </div>

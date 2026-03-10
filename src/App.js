@@ -1,4 +1,4 @@
-import Bible from "./components/pages/bible/bible";
+import BiblePage from "./components/pages/bible/bible";
 import AboutPage from "./components/pages/about/about";
 import HomePage from "./components/pages/home/home";
 import MorePage from "./components/pages/more/more";
@@ -32,7 +32,7 @@ export default function App() {
               element={<TranslationLanguagePage />}
             />
             <Route path="/" element={<TranslationsPage />} />
-            <Route path="/:bibleId" element={<Bible />} />
+            <Route path="/:bibleId" element={<BiblePage />} />
             <Route
               path="/:bibleId/:bookId/:chapterId"
               element={<ChapterPage />}
