@@ -12,8 +12,6 @@ const fetchFromApi = async (url) => {
   if (!response.ok)
     throw new Error(`API Error: ${response.status} ${response.statusText}`);
 
-  console.log(`API response from ${url}:`, response);
-
   const data = await response.json();
   return data.data;
 };
@@ -46,8 +44,6 @@ export const fetchVerses = async (bibleId, bookId, chapterId) => {
     `${BASE_URL}/bibles/${bibleId}/chapters/${bookId}.${chapterId}?content-type=json`,
   ).then((data) => {
     if (!data.content) return [];
-
-    console.log("Raw API response:", data);
 
     return data.content
       .flatMap((item) => item.items || [])
