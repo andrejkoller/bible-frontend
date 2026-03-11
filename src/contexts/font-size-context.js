@@ -8,7 +8,6 @@ export const FontSizeProvider = ({ children }) => {
   );
 
   React.useEffect(() => {
-    document.documentElement.style.fontSize = fontSize;
     localStorage.setItem("fontSize", fontSize);
   }, [fontSize]);
 

@@ -2,19 +2,12 @@ import * as React from "react";
 import { useNavigate, useLocation } from "react-router";
 import styles from "./header.module.css";
 import { headerTitles } from "../../configs/header-config";
+import { useBible } from "../../hooks/use-bible";
 
 export const Header = () => {
-  const [selectedBible, setSelectedBible] = React.useState(null);
-  const [selectedBook, setSelectedBook] = React.useState(null);
-  const [selectedChapter, setSelectedChapter] = React.useState(null);
+  const { selectedBible, selectedBook, selectedChapter } = useBible();
   const navigate = useNavigate();
   const location = useLocation();
-
-  React.useEffect(() => {
-    setSelectedBible(JSON.parse(localStorage.getItem("selectedBible")));
-    setSelectedBook(JSON.parse(localStorage.getItem("selectedBook")));
-    setSelectedChapter(JSON.parse(localStorage.getItem("selectedChapter")));
-  }, []);
 
   const navigateToBooks = () => {
     navigate(`/${selectedBible?.id}`);
