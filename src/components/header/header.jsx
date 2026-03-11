@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useNavigate, useLocation } from "react-router";
 import styles from "./header.module.css";
 import { headerTitles } from "../../configs/header-config";
