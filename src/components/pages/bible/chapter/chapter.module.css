@@ -75,3 +75,19 @@
 .next {
   margin-left: auto;
 }
+
+.error {
+  text-align: center;
+  color: var(--error);
+  margin-top: 20px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.noVerses {
+  text-align: center;
+  margin-top: 20px;
+}

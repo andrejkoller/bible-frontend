@@ -1,27 +1,52 @@
-import { useEffect, useRef, useState } from "react";
+import * as React from "react";
 import { useBible } from "../../../hooks/use-bible";
+import { fetchBooks, fetchChapters } from "../../../services/bible-service";
 import { useNavigate } from "react-router-dom";
 import styles from "./bible.module.css";
 
 export default function BiblePage() {
   const {
     books,
+    setBooks,
     chapters,
+    setChapters,
     selectedBook,
     selectedBible,
     setSelectedBook,
     setSelectedChapter,
-    isChaptersVisible,
-    setIsChaptersVisible,
+    isChapterVisible,
+    setIsChapterVisible,
     isLoading,
+    setIsLoading,
     error,
+    setError,
   } = useBible();
   const navigate = useNavigate();
-  const [isRendered, setIsRendered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const bookRefs = useRef({});
+  const [isRendered, setIsRendered] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const bookRefs = React.useRef({});
 
-  useEffect(() => {
+  React.useEffect(() => {
+    if (!selectedBible?.id) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    fetchBooks(selectedBible.id)
+      .then(setBooks)
+      .catch((err) => setError(err.message))
+      .finally(() => setIsLoading(false));
+  }, [selectedBible?.id, setBooks, setIsLoading, setError]);
+
+  React.useEffect(() => {
+    if (!selectedBible?.id || !selectedBook) return;
+
+    fetchChapters(selectedBible.id, selectedBook)
+      .then(setChapters)
+      .catch((err) => setError(err.message));
+  }, [selectedBible?.id, selectedBook, setChapters, setError]);
+
+  React.useEffect(() => {
     if (selectedBook && books.length > 0) {
       const foundBook = books.find((book) => book.id === selectedBook);
       if (foundBook) {
@@ -37,22 +62,22 @@ export default function BiblePage() {
     }
   }, [books, selectedBook]);
 
-  const handleBookSelect = async (bookId) => {
+  const handleBookSelect = (bookId) => {
     if (selectedBook === bookId) {
       setSelectedBook("");
       setSelectedChapter("");
-      setIsChaptersVisible(false);
+      setIsChapterVisible(false);
     } else {
       setIsRendered(true);
       setSelectedBook(bookId);
-      setIsChaptersVisible(true);
+      setIsChapterVisible(true);
       setTimeout(() => {
         setIsVisible(true);
       }, 10);
     }
   };
 
-  const handleChapterSelect = async (chapterId) => {
+  const handleChapterSelect = (chapterId) => {
     setSelectedChapter(chapterId);
     navigate(`/${selectedBible.id}/${selectedBook}/${chapterId}`);
   };
@@ -71,7 +96,7 @@ export default function BiblePage() {
               >
                 <span
                   className={
-                    isChaptersVisible && selectedBook === book.id
+                    isChapterVisible && selectedBook === book.id
                       ? `${styles.bookLink} ${styles.active}`
                       : styles.bookLink
                   }
@@ -82,7 +107,7 @@ export default function BiblePage() {
                       className={"fa-solid fa-chevron-down"}
                       style={{
                         transform:
-                          isChaptersVisible && selectedBook === book?.id
+                          isChapterVisible && selectedBook === book?.id
                             ? "rotate(180deg)"
                             : "rotate(0deg)",
                       }}

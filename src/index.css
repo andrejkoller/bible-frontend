@@ -37,7 +37,9 @@
 
   --button: #000000;
   --button-hover: #333333;
-  
+
+  --error: #ff4d4d;
+
   --scrollbar: #c4c4c4;
 }
 
@@ -50,8 +52,10 @@
   --card: #222222;
   --card-hover: #333333;
 
-    --button: #ffffff;
+  --button: #ffffff;
   --button-hover: #f0f0f0;
+
+  --error: #ff4d4d;
 
   --scrollbar: #333333;
 }

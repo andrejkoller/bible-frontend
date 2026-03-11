@@ -1,4 +1,6 @@
+import * as React from "react";
 import { useBible } from "../../../../hooks/use-bible";
+import { fetchBibles } from "../../../../services/bible-service";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./translations.module.css";
 
@@ -6,14 +8,29 @@ export default function TranslationsPage() {
   const {
     language,
     bibles,
+    setBibles,
     selectedBible,
     setSelectedBible,
     isLoading,
+    setIsLoading,
     error,
+    setError,
   } = useBible();
   const navigate = useNavigate();
 
-  const handleBibleSelect = async (bible) => {
+  React.useEffect(() => {
+    if (!language?.id) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    fetchBibles(language.id)
+      .then(setBibles)
+      .catch((err) => setError(err.message))
+      .finally(() => setIsLoading(false));
+  }, [language?.id, setBibles, setIsLoading, setError]);
+
+  const handleBibleSelect = (bible) => {
     setSelectedBible(bible);
     navigate(`/${bible.id}`);
   };
@@ -32,9 +49,9 @@ export default function TranslationsPage() {
         </div>
         <div className={styles.translationsContent}>
           {error ? (
-            <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
+            <p className={styles.error}>Error: {error}</p>
           ) : isLoading ? (
-            <p style={{ textAlign: "center" }}>Loading...</p>
+            <p className={styles.loading}>Loading...</p>
           ) : bibles && bibles.length > 0 ? (
             <div className={styles.bibles}>
               {bibles.map((bible) => (
@@ -51,7 +68,7 @@ export default function TranslationsPage() {
               ))}
             </div>
           ) : (
-            <p style={{ textAlign: "center" }}>No translations available</p>
+            <p className={styles.noTranslations}>No translations available</p>
           )}
         </div>
       </div>

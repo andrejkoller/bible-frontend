@@ -1,48 +1,34 @@
-import { useRef, useEffect } from "react";
-import { useNavigate } from "react-router";
-import { useLocation } from "react-router-dom";
+import * as React from "react";
+import { useNavigate, useLocation } from "react-router";
 import styles from "./header.module.css";
+import { headerTitles } from "../../configs/header-config";
 
 export const Header = () => {
-  const selectedBible = JSON.parse(localStorage.getItem("selectedBible"));
-  let selectedBook = JSON.parse(localStorage.getItem("selectedBook"));
-  let selectedChapter = JSON.parse(localStorage.getItem("selectedChapter"));
+  const [selectedBible, setSelectedBible] = React.useState(null);
+  const [selectedBook, setSelectedBook] = React.useState(null);
+  const [selectedChapter, setSelectedChapter] = React.useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const prevPathRef = useRef();
 
-  useEffect(() => {
-    prevPathRef.current = location.pathname;
-  }, [location.pathname]);
+  React.useEffect(() => {
+    setSelectedBible(JSON.parse(localStorage.getItem("selectedBible")));
+    setSelectedBook(JSON.parse(localStorage.getItem("selectedBook")));
+    setSelectedChapter(JSON.parse(localStorage.getItem("selectedChapter")));
+  }, []);
 
   const navigateToBooks = () => {
     navigate(`/${selectedBible?.id}`);
   };
 
+  const showBibleControls =
+    location.pathname.startsWith(`/${selectedBible?.id}`) ||
+    location.pathname === "/";
+
   return (
     <div className={styles.header}>
-      {location.pathname.startsWith(`/${selectedBible?.id}`) && (
+      {showBibleControls && (
         <>
-          <div className={styles.book} onClick={() => navigateToBooks()}>
-            {selectedBook && selectedChapter ? (
-              <>
-                {selectedBook} {selectedChapter}
-              </>
-            ) : (
-              <span>Select a book and chapter</span>
-            )}
-          </div>
-          <div className={styles.translation} onClick={() => navigate("/")}>
-            {selectedBible?.id
-              ? selectedBible?.abbreviation
-              : "Select a Translation"}
-          </div>
-        </>
-      )}
-
-      {location.pathname === "/" && (
-        <>
-          <div className={styles.book} onClick={() => navigateToBooks()}>
+          <div className={styles.book} onClick={navigateToBooks}>
             {selectedBook && selectedChapter ? (
               <>
                 {selectedBook} {selectedChapter}
@@ -60,15 +46,9 @@ export const Header = () => {
       )}
 
       <div className={styles.headerTitle}>
-        {location.pathname === "/bible-language" && <h2>Bible Language</h2>}
-        {location.pathname === "/more" && <h2>More</h2>}
-        {location.pathname === "/about" && <h2>About</h2>}
-        {location.pathname === "/developers" && <h2>Developers</h2>}
-        {location.pathname === "/help" && <h2>Help</h2>}
-        {location.pathname === "/settings" && <h2>Settings</h2>}
-        {location.pathname === "/settings/language" && <h2>Language</h2>}
-        {location.pathname === "/settings/theme" && <h2>Low Light</h2>}
-        {location.pathname === "/settings/font" && <h2>Font Size</h2>}
+        {headerTitles[location.pathname] && (
+          <h2>{headerTitles[location.pathname]}</h2>
+        )}
       </div>
     </div>
   );

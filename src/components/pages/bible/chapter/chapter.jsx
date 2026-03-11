@@ -1,14 +1,16 @@
 import { useNavigate, useParams } from "react-router";
 import { useBible } from "../../../../hooks/use-bible";
-import { useFontSize } from "../../../../hooks/use-font-size";
-import { useEffect } from "react";
+import { fetchChapters, fetchVerses } from "../../../../services/bible-service";
+import * as React from "react";
 import styles from "./chapter.module.css";
 
 export default function ChapterPage() {
   const { bibleId, bookId, chapterId } = useParams();
   const {
     chapters,
+    setChapters,
     verses,
+    setVerses,
     selectedBible,
     selectedBook,
     selectedChapter,
@@ -16,15 +18,16 @@ export default function ChapterPage() {
     setSelectedBook,
     setSelectedChapter,
     isLoading,
+    setIsLoading,
     error,
+    setError,
   } = useBible();
   const navigate = useNavigate();
-  useFontSize();
   const filteredChapters = chapters.filter(
     (chapter) => chapter.number !== "intro",
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (bibleId && (!selectedBible || selectedBible.id !== bibleId)) {
       setSelectedBible({ id: bibleId });
     }
@@ -46,7 +49,27 @@ export default function ChapterPage() {
     setSelectedChapter,
   ]);
 
-  const handleChapterChange = async (direction) => {
+  React.useEffect(() => {
+    if (!bibleId || !bookId) return;
+
+    fetchChapters(bibleId, bookId)
+      .then(setChapters)
+      .catch((err) => setError(err.message));
+  }, [bibleId, bookId, setChapters, setError]);
+
+  React.useEffect(() => {
+    if (!bibleId || !bookId || !chapterId) return;
+
+    setIsLoading(true);
+    setError(null);
+
+    fetchVerses(bibleId, bookId, chapterId)
+      .then(setVerses)
+      .catch((err) => setError(err.message))
+      .finally(() => setIsLoading(false));
+  }, [bibleId, bookId, chapterId, setVerses, setIsLoading, setError]);
+
+  const handleChapterChange = (direction) => {
     const currentIndex = filteredChapters.findIndex(
       (ch) => ch.number === selectedChapter,
     );
@@ -70,9 +93,9 @@ export default function ChapterPage() {
   return (
     <div className={styles.chapter}>
       {error ? (
-        <p style={{ textAlign: "center", color: "red" }}>Error: {error}</p>
+        <p className={styles.error}>Error: {error}</p>
       ) : isLoading ? (
-        <p style={{ textAlign: "center" }}>Loading...</p>
+        <p className={styles.loading}>Loading...</p>
       ) : selectedBook && selectedChapter && verses.length > 0 ? (
         <>
           <div className={styles.chapters}>
@@ -107,7 +130,7 @@ export default function ChapterPage() {
           </div>
         </>
       ) : (
-        <p style={{ textAlign: "center" }}>No verses available</p>
+        <p className={styles.noVerses}>No verses available</p>
       )}
     </div>
   );

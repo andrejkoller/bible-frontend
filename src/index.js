@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./app";
+import App from "./App";
 import reportWebVitals from "./report-web-vitals";
 import { BrowserRouter } from "react-router";
 import { ThemeProvider } from "./contexts/theme-context";
 import { LanguageProvider } from "./contexts/language-context";
 import { FontSizeProvider } from "./contexts/font-size-context";
+import { BibleProvider } from "./contexts/bible-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,9 +15,11 @@ root.render(
     <React.StrictMode>
       <LanguageProvider>
         <ThemeProvider>
-          <FontSizeProvider>
-            <App />
-          </FontSizeProvider>
+          <BibleProvider>
+            <FontSizeProvider>
+              <App />
+            </FontSizeProvider>
+          </BibleProvider>
         </ThemeProvider>
       </LanguageProvider>
     </React.StrictMode>
