@@ -14,7 +14,7 @@ import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import TranslationsPage from "./components/pages/bible/translations/translations";
 import TranslationLanguagePage from "./components/pages/translation-language/translation-language";
-import "./app.css";
+import "./App.css";
 import "./index.css";
 
 export default function App() {

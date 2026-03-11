@@ -7,6 +7,6 @@ module.exports = function (app) {
       target: "https://api.scripture.api.bible",
       changeOrigin: true,
       pathRewrite: { "^/api": "" },
-    })
+    }),
   );
 };

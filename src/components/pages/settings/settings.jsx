@@ -1,31 +1,23 @@
 import { Link } from "react-router";
 import styles from "./settings.module.css";
+import { settingsConfig } from "../../../configs/settings-config";
 
 export default function SettingsPage() {
   return (
     <div className={styles.settings}>
-      <div className={styles.settingsGeneral}>
-        <div className={styles.settingsTitle}>
-          <h3>General</h3>
+      {Object.entries(settingsConfig).map(([section, { title, items }]) => (
+        <div key={section} className={styles.section}>
+          <h2 className={styles.sectionTitle}>{title}</h2>
+          <div className={styles.sectionLinks}>
+            {items.map((item) => (
+              <Link key={item.name} to={item.path} className={styles.link}>
+                <span>{item.name}</span>
+                <i className="fa-solid fa-chevron-right" />
+              </Link>
+            ))}
+          </div>
         </div>
-        <Link className={styles.link} to={"/settings/language"}>
-          <span>Language</span>
-          <i className="fa-solid fa-chevron-right"></i>
-        </Link>
-        <Link className={styles.link} to={"/settings/theme"}>
-          <span>Low Light</span>
-          <i className="fa-solid fa-chevron-right"></i>
-        </Link>
-      </div>
-      <div className={styles.settingsBible}>
-        <div className={styles.settingsTitle}>
-          <h3>Bible Reading</h3>
-        </div>
-        <Link className={styles.link} to={"/settings/font"}>
-          <span>Font Size</span>
-          <i className="fa-solid fa-chevron-right"></i>
-        </Link>
-      </div>
+      ))}
     </div>
   );
 }

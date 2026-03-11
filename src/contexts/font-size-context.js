@@ -4,7 +4,7 @@ export const FontSizeContext = React.createContext(undefined);
 
 export const FontSizeProvider = ({ children }) => {
   const [fontSize, setFontSize] = React.useState(
-    () => localStorage.getItem("fontSize") || "medium",
+    () => localStorage.getItem("fontSize") || "16",
   );
 
   React.useEffect(() => {

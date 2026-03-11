@@ -1,24 +1,37 @@
 .settings {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
   width: 100%;
   margin: 20px 0;
 }
 
-.settingsGeneral,
-.settingsBible {
+.section {
+  margin: 0 -10px;
+  padding: 0 10px;
+}
+
+.section:nth-child(1) {
+  border-bottom: 1px solid var(--border);
+}
+
+.sectionLinks {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  text-transform: capitalize;
 }
 
 .link {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 0 1rem 0;
 }
 
-.settingsTitle h3 {
-  font-size: 1.125rem;
+.link:nth-child(1) {
+  padding-top: 1rem;
 }
