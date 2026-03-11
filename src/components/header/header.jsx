@@ -34,13 +34,13 @@ export const Header = () => {
                 {selectedBook} {selectedChapter}
               </>
             ) : (
-              <span>Select a book and chapter</span>
+              <span>Select book and chapter</span>
             )}
           </div>
           <div className={styles.translation} onClick={() => navigate("/")}>
             {selectedBible?.id
               ? selectedBible?.abbreviation
-              : "Select a Translation"}
+              : "Select Translation"}
           </div>
         </>
       )}
