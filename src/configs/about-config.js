@@ -3,17 +3,17 @@ export const aboutConfig = {
     {
       name: "Facebook",
       icon: "fa-brands fa-facebook",
-      link: "https://www.facebook.com/bibleversion",
+      link: "https://www.facebook.com/#",
     },
     {
       name: "X (Twitter)",
       icon: "fa-brands fa-twitter",
-      link: "https://x.com/bibleversion",
+      link: "https://x.com/#",
     },
     {
       name: "Instagram",
       icon: "fa-brands fa-instagram",
-      link: "https://www.instagram.com/bibleversion",
+      link: "https://www.instagram.com/#",
     },
   ],
   cta: [
