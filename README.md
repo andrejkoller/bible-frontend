@@ -70,7 +70,7 @@ This application uses the [Scripture API](https://scripture.api.bible/). To get 
 
 ## 📸 Screenshots
 
-<img width="1920" height="1084" alt="Screenshot 1" src="https://github.com/user-attachments/assets/ab1c835d-97d9-439a-8c32-97f8d44d4722" />
+<img width="1920" height="1084" alt="Screenshot 1" src="https://github.com/user-attachments/assets/7a4a3165-b51e-4d35-b1dc-45f71cd1c1ae" />
 <img width="1920" height="1084" alt="Screenshot 2" src="https://github.com/user-attachments/assets/c459544f-2c12-4b6d-aa77-b75102128414" />
 <img width="1920" height="1084" alt="Screenshot 3" src="https://github.com/user-attachments/assets/9e58c6f3-a3d8-4def-9bd5-ce1c3a0d40bf" />
 <img width="1920" height="1084" alt="Screenshot 4" src="https://github.com/user-attachments/assets/969c5804-a1c1-411f-96aa-a1e04dfc0151" />
@@ -82,7 +82,7 @@ This application uses the [Scripture API](https://scripture.api.bible/). To get 
 <img width="1920" height="1084" alt="Screenshot 10" src="https://github.com/user-attachments/assets/86cc41c3-c684-41dd-ad50-91e74a63e125" />
 <img width="1920" height="1084" alt="Screenshot 11" src="https://github.com/user-attachments/assets/1688996a-8c3a-4001-95d5-349afe1d8a44" />
 <img width="1920" height="1084" alt="Screenshot 12" src="https://github.com/user-attachments/assets/a9101144-effb-48fd-ba05-d264132fc300" />
-<img width="1920" height="1084" alt="Screenshot 13" src="https://github.com/user-attachments/assets/2d2bf824-f4e9-4ee5-9068-7637d188982c" />
+<img width="1920" height="1084" alt="Screenshot 13" src="https://github.com/user-attachments/assets/6a9eaa72-15c1-48ae-b8b7-8ace67d5acdb" />
 <img width="1920" height="1084" alt="Screenshot 14" src="https://github.com/user-attachments/assets/208caa41-9858-4262-bb5e-1d0d097d3859" />
 <img width="1920" height="1084" alt="Screenshot 15" src="https://github.com/user-attachments/assets/6ef8f038-43b9-4a06-b68a-cebba0fdb700" />
 <img width="1920" height="1084" alt="Screenshot 16" src="https://github.com/user-attachments/assets/4aa4a5d6-9316-4622-a7e2-75e1ad7f06a6" />
