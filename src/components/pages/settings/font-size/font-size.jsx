@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useFontSize } from "../../../../hooks/use-font-size";
 import styles from "./font-size.module.css";
 

@@ -4,7 +4,7 @@ export const LanguageContext = React.createContext(undefined);
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = React.useState(
-    () => localStorage.getItem("language") || "en-US",
+    () => localStorage.getItem("language") || "en",
   );
 
   React.useEffect(() => {

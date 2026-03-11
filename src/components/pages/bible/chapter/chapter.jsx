@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from "react-router";
 import { useBible } from "../../../../hooks/use-bible";
+import { useFontSize } from "../../../../hooks/use-font-size";
 import { fetchChapters, fetchVerses } from "../../../../services/bible-service";
 import * as React from "react";
 import styles from "./chapter.module.css";
 
 export default function ChapterPage() {
+  const { fontSize } = useFontSize();
   const { bibleId, bookId, chapterId } = useParams();
   const {
     chapters,
@@ -99,7 +101,10 @@ export default function ChapterPage() {
       ) : selectedBook && selectedChapter && verses.length > 0 ? (
         <>
           <div className={styles.chapters}>
-            <div className={styles.verses}>
+            <div
+              className={styles.verses}
+              style={{ fontSize: `${fontSize}px` }}
+            >
               {verses.map((verse, index) => (
                 <div key={`${verse}-${index}`} className={styles.verse}>
                   <span className={styles.verseNumber}>{index + 1}</span>
