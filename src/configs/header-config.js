@@ -4,6 +4,7 @@ export const headerTitles = {
   "/about": "About",
   "/developers": "Developers",
   "/help": "Help",
+  "/search": "Search",
   "/settings": "Settings",
   "/settings/language": "Language",
   "/settings/theme": "Low Light",
