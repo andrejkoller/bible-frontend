@@ -51,3 +51,14 @@ export const fetchVerses = async (bibleId, bookId, chapterId) => {
       .map((item) => item.text);
   });
 };
+
+export const searchVerses = async (bibleId, query) => {
+  if (!bibleId || !query) throw new Error("Bible ID and query are required");
+
+  return fetchFromApi(
+    `${BASE_URL}/bibles/${bibleId}/search?query=${encodeURIComponent(query)}&sort=relevance`,
+  ).then((data) => {
+    if (!data || !data.verses) return [];
+    return data.verses;
+  });
+};

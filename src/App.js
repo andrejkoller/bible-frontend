@@ -14,6 +14,7 @@ import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import TranslationsPage from "./components/pages/bible/translations/translations";
 import TranslationLanguagePage from "./components/pages/translation-language/translation-language";
+import SearchPage from "./components/pages/search/search";
 import "./App.css";
 import "./index.css";
 
@@ -41,6 +42,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/developers" element={<DevelopersPage />} />
             <Route path="/help" element={<HelpPage />} />
+            <Route path="/:bibleId/search" element={<SearchPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/settings/language" element={<LanguagePage />} />
             <Route path="/settings/theme" element={<ThemePage />} />
