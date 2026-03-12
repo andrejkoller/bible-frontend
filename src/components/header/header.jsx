@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Link } from "react-router";
 import styles from "./header.module.css";
 import { headerTitles } from "../../configs/header-config";
 import { useBible } from "../../hooks/use-bible";
@@ -19,28 +19,35 @@ export const Header = () => {
   return (
     <div className={styles.header}>
       {showBibleControls && (
-        <>
+        <div className={styles.controls}>
           <div className={styles.book} onClick={navigateToBooks}>
             {selectedBook && selectedChapter ? (
               <>
                 {selectedBook} {selectedChapter}
               </>
             ) : (
-              <span>Select book and chapter</span>
+              "Select Book and Chapter"
             )}
           </div>
           <div className={styles.translation} onClick={() => navigate("/")}>
-            {selectedBible?.id
-              ? selectedBible?.abbreviation
-              : "Select Translation"}
+            {selectedBible?.id ? selectedBible?.abbreviation : ""}
           </div>
-        </>
+        </div>
       )}
 
       <div className={styles.headerTitle}>
         {headerTitles[location.pathname] && (
           <h2>{headerTitles[location.pathname]}</h2>
         )}
+      </div>
+
+      <div className={styles.navLinks}>
+        <Link className={styles.aboutLink} to={"/search"}>
+          <i className="fa-solid fa-magnifying-glass" />
+        </Link>
+        <Link className={styles.settingsLink} to={"/settings"}>
+          <i className="fa-solid fa-gear" />
+        </Link>
       </div>
     </div>
   );
