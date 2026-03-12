@@ -40,6 +40,20 @@ export default function HelpPage() {
         <h3>Can I customize the font and text size?</h3>
         <p>Yes! You can adjust the font style and size in the settings menu.</p>
       </div>
+      <div className={styles.helpItem}>
+        <h3>How do I navigate between chapters?</h3>
+        <p>
+          Use the navigation controls at the top to select your desired book and
+          chapter. You can also swipe left or right to move between chapters.
+        </p>
+      </div>
+      <div className={styles.helpItem}>
+        <h3>Is the app available in multiple languages?</h3>
+        <p>
+          Yes! You can change the app language in the settings menu. Multiple
+          Bible translations in various languages are also available.
+        </p>
+      </div>
     </div>
   );
 }

@@ -12,25 +12,33 @@ export const BibleProvider = ({ children }) => {
   const [error, setError] = React.useState(null);
 
   const [language, setLanguage] = React.useState(
-    getLocalStorageItem("translationLanguage", null),
+    getLocalStorageItem("translationLanguage", { id: "eng", name: "English" }),
   );
 
   const [selectedBible, setSelectedBible] = React.useState(() =>
-    getLocalStorageItem("selectedBible", null),
+    getLocalStorageItem("selectedBible", {
+      id: "de4e12af7f28f599-02",
+      abbreviation: "KJV",
+      name: "King James Version",
+    }),
   );
 
   const [selectedBook, setSelectedBook] = React.useState(() =>
-    getLocalStorageItem("selectedBook", null),
+    getLocalStorageItem("selectedBook", "JHN"),
   );
 
   const [selectedChapter, setSelectedChapter] = React.useState(() =>
-    getLocalStorageItem("selectedChapter", null),
+    getLocalStorageItem("selectedChapter", "3"),
   );
 
   const [isChapterVisible, setIsChapterVisible] = React.useState(false);
 
   React.useEffect(() => {
-    localStorage.setItem("language", language);
+    if (language) {
+      localStorage.setItem("translationLanguage", JSON.stringify(language));
+    } else {
+      localStorage.removeItem("translationLanguage");
+    }
   }, [language]);
 
   React.useEffect(() => {
