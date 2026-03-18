@@ -35,6 +35,9 @@
   --card: #f5f5f5;
   --card-hover: #e0e0e0;
 
+  --input: #f0f0f0;
+  --input-hover: #e0e0e0;
+
   --button: #000000;
   --button-hover: #333333;
 
@@ -51,6 +54,9 @@
 
   --card: #222222;
   --card-hover: #333333;
+
+  --input: #333333;
+  --input-hover: #444444;
 
   --button: #ffffff;
   --button-hover: #f0f0f0;
