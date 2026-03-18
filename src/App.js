@@ -25,7 +25,17 @@ export default function App() {
     <>
       <div className="app">
         {location.pathname !== "/home" && <Header />}
-        <main className="main">
+        <main
+          className="main"
+          style={{
+            marginTop:
+              location.pathname === "/home" ? "0" : "var(--header-height)",
+            height:
+              location.pathname === "/home"
+                ? "100vh"
+                : "calc(100vh - var(--header-height) - var(--footer-height))",
+          }}
+        >
           <Routes>
             <Route index path="/home" element={<HomePage />} />
             <Route
